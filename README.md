@@ -16,3 +16,24 @@ HTML.
 CSS.
 Javascript (jQuery). 
 Bootstrap for initial design.
+
+Initial tasks:
+(Described as issues in GitHub)
+
+Setting up development environment
+Css and html for design of the tool (looks)
+Register as a user
+Login as a user
+See the list of available surveys
+Choose survey
+Static survey: some initial fields to be filled (text, check, ...)
+Grid development
+Samples are on top of the screen (6 samples)
+Grid with x and y axis
+Set names to the grid
+Drag and drop sample items to the grid
+Tagging the samples
+Submitting and sending the data
+getting confirmation 
+logging out
+
