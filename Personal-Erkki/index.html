@@ -8,18 +8,56 @@
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="style.css">
   <script>
-  $(function() {
-    $( "#draggable_item1" ).draggable();
-    $( "#draggable_item2" ).draggable();
-    $( "#draggable_item3" ).draggable();
+
+$(document).ready(function() {
+    //$('#dialog').dialog();
+    $('#dialog_link').click(function() {
+        $('#dialog').dialog();
+        return false;
+    });
+});
+
+ $( "#draggable_item1" ).selectable( "enable" );
+
+
+  $(function() {   
+   
+
+	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable();
+	$( "#canvas" ).droppable({
+      accept: "#draggable_item2",
+      activeClass: "ui-state-hover",
+      hoverClass: "ui-state-active",
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
+
+
+
+
+  //  $( "#items" ).selectable();
   });
   </script>
 </head>
 <body>
- 
+ <div id="dialog" title="Dialog Title" style="display:none"> Some text</div>  
+   <p id="dialog_link">Open Dialog</p>  
+
+
+
+
 <div id="items">
 	<div id="draggable_item1" class="draggable_content">
 	  <p>Sample 1</p>
+	  <p id="add_tag_link1"><a href="javascript:$('#add_tag_layer1').toggle();">Add tag</a></p>
+	  <div id="add_tag_layer1">
+	  	<input type="text" value="sweet" />
+	  	<input type="button" name="tag" value="Add" />
+	  </div>
 	</div>
 
 	<div id="draggable_item2" class="draggable_content">
@@ -28,6 +66,10 @@
 
 	<div id="draggable_item3" class="draggable_content">
 	  <p>Sample 3</p>
+	</div>
+
+	<div id="draggable_item4" class="draggable_content">
+	  <p>Sample 4</p>
 	</div>
 </div>
 

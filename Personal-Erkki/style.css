@@ -4,20 +4,6 @@ body {
 	margin: 10px;
 }
 
- .draggable_content { 
- 	margin: 5px;
- 	width: 50px; 
- 	height: 50px; 
- 	padding: 0.5em; 
- 	border: 1px solid #333;
- 	background: #a0d73b;
- 	text-align: center;
- 	vertical-align: middle;
- 	float: left;
- 	cursor: all-scroll;
-}
-
-
 #items {
 	width:800px;
 	float: left;
@@ -26,11 +12,73 @@ body {
 	border: 5px solid #a0d73b;
 }
 
+#items .ui-selected { 
+ 	margin: 5px;
+ 	width: 50px; 
+ 	height: 50px; 
+ 	padding: 0.5em; 
+ 	border: 1px solid #000;
+ 	background: #fff;
+ 	text-align: center;
+ 	vertical-align: middle;
+ 	float: left;
+ 	cursor: all-scroll;
+}
+
+.draggable_content { 
+ 	margin: 3px;
+ 	width: 50px; 
+ 	height: 50px; 
+ 	padding: 5px; 
+ 	border: 1px solid #333;
+ 	background: #a0d73b;
+ 	text-align: center;
+ 	vertical-align: top;
+ 	float: left;
+ 	cursor: all-scroll;
+}
+.draggable_content .ui-state-highlight {
+	background: #ff99aa;
+}
+
+.draggable_content p { 
+ 	text-align: center;
+ 	vertical-align: top;
+ 	font-size: 11px;
+}
+
+
 #canvas {
 	float: left;
 	width:800px;
 	height:800px;
 	margin: 10px;
 	border: 5px solid #a0d73b;
+	background: #fff;
 	clear:both;
 }
+#canvas .ui-state-hover {
+	border: 5px solid red;
+	background: #ccc;
+}
+
+#canvas .ui-state-active {
+	border: 5px solid blue;
+	background: #eee;
+}
+
+#add_tag_layer1 {
+	background: blue;
+	width:100px;
+	padding:10px;
+	margin-left: -5px;
+	display: none;
+}
+#add_tag_layer1 input {
+	margin:5px;
+	background:white;
+	border:0px;
+	width:80px;
+}
+
+
