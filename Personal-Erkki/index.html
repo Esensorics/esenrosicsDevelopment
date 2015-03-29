@@ -9,15 +9,19 @@
   <link rel="stylesheet" href="style.css">
   <script>
 
-$(document).ready(function() {
-    //$('#dialog').dialog();
-    $('#dialog_link').click(function() {
-        $('#dialog').dialog();
-        return false;
-    });
-});
+ /* var samplesCount = 4;
 
- $( "#draggable_item1" ).selectable( "enable" );
+  var samplesList = [];
+
+  for ( var i = 1; i <= samplesCount; i++ ) {
+	samplesList[i]['id']=i;
+	samplesList[i]['name']="Sample "+i;
+	alert(i);
+	//samplesList[i]['tags']=[];
+  }*/
+
+
+ //$( "#draggable_item1" ).selectable( "enable" );
 
 
   $(function() {   
@@ -44,11 +48,9 @@ $(document).ready(function() {
   </script>
 </head>
 <body>
- <div id="dialog" title="Dialog Title" style="display:none"> Some text</div>  
-   <p id="dialog_link">Open Dialog</p>  
 
-
-
+<h1>Candy test</h1>
+<p>Dear visitor, thank you for tasting the candy samples. Please move the samples to the axes accordingly.</p>
 
 <div id="items">
 	<div id="draggable_item1" class="draggable_content">
@@ -89,7 +91,9 @@ $(document).ready(function() {
 </div>
 
 <div id="canvas">
-
+<script type="text/javascript">
+	//$('#canvas').html('canvas: '+samplesList[2]['name']);
+</script>
 </div>
 
   
