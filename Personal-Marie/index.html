@@ -12,13 +12,28 @@
     $( "#draggable_item1" ).draggable();
     $( "#draggable_item2" ).draggable();
     $( "#draggable_item3" ).draggable();
+      
+       var position = $("#draggable_item1").offset();
+      var x1 = position.left - 30;
+      var y1 = position.top - 30 ;
+    $( "#canvas" ).droppable({
+  drop: function(event,ui) {
+    $(ui.draggable).animate({ top: y1, left:x1},400);
+     // var draggableId = ui.draggable.attr("id");
+       $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 );
+  }
+        
+});
       //getting the cordinates
       
-      var position = $("#draggable_item1").offset();
-      var x = position.left;
-      var y = position.top;
-      $( "#draggable_item1" ).animate({ top: 100, left:100},500);
-      $( "#draggable_item1" ).animate({ top: y, left:x},500);
+      
+     
+      
+      
+      
+      //$( "#draggable_item1" ).animate({ top: 100, left:100},500);
+      //$( "#draggable_item1" ).animate({ top: y1, left:x1},500);
   });
   </script>
 </head>
