@@ -33,19 +33,6 @@ body {
 	margin: 10px;
 	border: 5px solid #a0d73b;
 	clear:both;
-}
-
-#column{
-   float: left;
-   width: 70px;
-   height: 70px;
-   border: 1px solid blue;
-   overflow: hidden;
-}
-
-#row{
-    width: 68px;
-    height: 25px;
-    border: 1px solid red;
+	<hr style="text-align:right;margin-right:0">
 }
 }

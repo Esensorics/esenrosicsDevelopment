@@ -7,6 +7,7 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="style.css">
+
   <script>
   $(function() {
     $( "#draggable_item1" ).draggable();
@@ -34,29 +35,28 @@
 
 <div id="canvas">
 
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 15px;
-}
-</style>
-</head>
+<canvas id="myCanvas">
+</canvas>
 
-<body>
+<script>
 
-<table style="width:100%">
-  <tr>
-    <td></td>
-    <td></td>   
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>   
-  </tr>
-</table>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+ctx.beginPath();              
+ctx.lineWidth = "1";
+ctx.strokeStyle = "green";
+ctx.moveTo(0, 100);
+ctx.lineTo(250, 100);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle = "purple";
+ctx.moveTo(150, 0);
+ctx.lineTo(150, 130);            
+ctx.stroke();
+
+</script>
 
 </div>
   
