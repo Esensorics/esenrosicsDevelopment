@@ -18,10 +18,15 @@
       var y1 = position.top - 35;
     $( "#drag_window" ).droppable({
   drop: function(event,ui) {
+    
+   //to be replaced by a condition about axis   
+      if(true){
     $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
        $(ui.draggable).effect( "bounce", 
           {times:3}, 300 );
+      
+      }
   }
         
 });
