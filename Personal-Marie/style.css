@@ -4,6 +4,13 @@ body {
 	margin: 10px;
 }
 
+#drag_window {
+float: left;
+	margin: 10px;
+	border: 5px solid #a0d73b;
+	clear:both;
+}
+
  .draggable_content { 
  	margin: 5px;
  	width: 50px; 
@@ -22,7 +29,6 @@ body {
 	width:800px;
 	float: left;
 	clear:both;
-	margin: 10px;
 	border: 5px solid #a0d73b;
 }
 
@@ -30,7 +36,6 @@ body {
 	float: left;
 	width:800px;
 	height:800px;
-	margin: 10px;
 	border: 5px solid #a0d73b;
 	clear:both;
 }

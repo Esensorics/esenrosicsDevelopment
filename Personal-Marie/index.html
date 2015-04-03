@@ -9,14 +9,14 @@
   <link rel="stylesheet" href="style.css">
   <script>
   $(function() {
-    $( "#draggable_item1" ).draggable();
-    $( "#draggable_item2" ).draggable();
-    $( "#draggable_item3" ).draggable();
+    $( "#draggable_item1" ).draggable({containment: "#drag_window"});
+    $( "#draggable_item2" ).draggable({containment: "#drag_window"});
+    $( "#draggable_item3" ).draggable({containment: "#drag_window"});
       
        var position = $("#draggable_item1").offset();
-      var x1 = position.left - 30;
-      var y1 = position.top - 30 ;
-    $( "#canvas" ).droppable({
+      var x1 = position.left - 35;
+      var y1 = position.top - 35;
+    $( "#drag_window" ).droppable({
   drop: function(event,ui) {
     $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
@@ -38,7 +38,7 @@
   </script>
 </head>
 <body>
- 
+ <div id="drag_window">
 <div id="items">
 	<div id="draggable_item1" class="draggable_content">
 	  <p>Sample 1</p>
@@ -56,7 +56,7 @@
 <div id="canvas">
 
 </div>
-
+</div>
   
 </body>
 </html>
