@@ -112,7 +112,7 @@ float: left;
 	position: relative;
 	top: -1202px;
 	left: 350px;
-	border: 1px solid #000;
+	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
@@ -124,7 +124,7 @@ float: left;
 	position: relative;
 	top: -425px;
 	left: 350px;
-	border: 1px solid #000;
+	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
@@ -136,7 +136,7 @@ float: left;
 	position: relative;
 	top: -815px;
 	left: -1px;
-	border: 1px solid #000;
+	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
@@ -148,7 +148,7 @@ float: left;
 	position: relative;
 	top: -815px;
 	left: 697px;
-	border: 1px solid #000;
+	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
