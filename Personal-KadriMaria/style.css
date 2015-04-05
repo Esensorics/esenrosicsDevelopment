@@ -34,7 +34,20 @@ body {
 	border: 5px solid #a0d73b;
 	clear:both;
 	}
-#hr {
-	border: solid #000
+
+#axis_horisontal {
+	width: 800px;
+	height: 1px;
+	position: relative;
+	margin-top: 399px;
+	border-bottom: 1px solid #666;
+}
+#axis_vertical {
+	width: 1px;
+	height: 800px;
+	position: relative;
+	top: -401px;
+	margin-left: 399px;
+	border-right: 1px solid #666;
 }
 }
