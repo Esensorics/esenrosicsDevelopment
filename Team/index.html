@@ -9,65 +9,61 @@
   <link rel="stylesheet" href="style.css">
   <script>
 
- /* var samplesCount = 4;
-
-  var samplesList = [];
-
-  for ( var i = 1; i <= samplesCount; i++ ) {
-	samplesList[i]['id']=i;
-	samplesList[i]['name']="Sample "+i;
-	alert(i);
-	//samplesList[i]['tags']=[];
-  }*/
-
-
- //$( "#draggable_item1" ).selectable( "enable" );
-
-
   $(function() {   
    
 
-	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable();
-	$( "#canvas" ).droppable({
-      accept: "#draggable_item2",
-      activeClass: "ui-state-hover",
-      hoverClass: "ui-state-active",
-      drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
-      }
-    });
-
-/*
-  $(function() {
-    $( "#draggable_item1" ).draggable();
-    $( "#draggable_item2" ).draggable();
-    $( "#draggable_item3" ).draggable();
+	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
       
-      var position = $("#draggable_item1").offset();
+      
+       var position = $("#draggable_item1").offset();
       var x1 = position.left - 30;
-      var y1 = position.top - 30 ;
-    $( "#canvas" ).droppable({
-      drop: function(event,ui) {
-      $(ui.draggable).animate({ top: y1, left:x1},400);
+      var y1 = position.top - 130;
+      
+	  $( "#drag_window" ).droppable({
+  drop: function(event,ui) {
+    
+      if(true){
+    $(ui.draggable).animate({ top: y1, left:x1},400);
+     // var draggableId = ui.draggable.attr("id");
        $(ui.draggable).effect( "bounce", 
           {times:3}, 300 );
-     }
+      
+      }
+  }
         
-    });*/
+});
+      
+      
+       $( "#canvas" ).droppable({
+                  greedy: true
+});
+      
+      
+        $( "#canvas" ).droppable({
+  drop: function(event,ui) {
+    
+   //to be replaced by a condition about axis   
+      if(false){
+    $(ui.draggable).animate({ top: y1, left:x1},400);
+     // var draggableId = ui.draggable.attr("id");
+       $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 );
+      
+      }
+  }
+        
+});
 
 
-  //  $( "#items" ).selectable();
   });
+      
   </script>
 </head>
 <body>
 
 <h1>Candy test</h1>
 <p>Dear visitor, thank you for tasting the candy samples. Please move the samples to the axes accordingly.</p>
-
+ <div id="drag_window">
 <div id="items">
 	<div id="draggable_item1" class="draggable_content">
 	  <p>Sample 1</p>
@@ -118,6 +114,7 @@
 	<div id="axisname_right">light</div>
 </div>
 
-  
+     </div>
+ 
 </body>
 </html>
