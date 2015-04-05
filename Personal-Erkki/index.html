@@ -40,7 +40,23 @@
       }
     });
 
-
+/*
+  $(function() {
+    $( "#draggable_item1" ).draggable();
+    $( "#draggable_item2" ).draggable();
+    $( "#draggable_item3" ).draggable();
+      
+      var position = $("#draggable_item1").offset();
+      var x1 = position.left - 30;
+      var y1 = position.top - 30 ;
+    $( "#canvas" ).droppable({
+      drop: function(event,ui) {
+      $(ui.draggable).animate({ top: y1, left:x1},400);
+       $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 );
+     }
+        
+    });*/
 
 
   //  $( "#items" ).selectable();
@@ -91,9 +107,15 @@
 </div>
 
 <div id="canvas">
-<script type="text/javascript">
-	//$('#canvas').html('canvas: '+samplesList[2]['name']);
-</script>
+	<script type="text/javascript">
+		//$('#canvas').html('canvas: '+samplesList[2]['name']);
+	</script>
+	<div id="axis_horisontal"></div>
+	<div id="axis_vertical"></div>
+	<div id="axisname_top">sweet</div>
+	<div id="axisname_bottom">sour</div>
+	<div id="axisname_left">dark</div>
+	<div id="axisname_right">light</div>
 </div>
 
   
