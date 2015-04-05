@@ -12,7 +12,7 @@
   $(function() {   
    
 
-	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window"});
+	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
       
       
        var position = $("#draggable_item1").offset();
@@ -22,7 +22,6 @@
 	  $( "#drag_window" ).droppable({
   drop: function(event,ui) {
     
-   //to be replaced by a condition about axis   
       if(true){
     $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
