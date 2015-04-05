@@ -100,7 +100,9 @@
 	  	<input type="button" name="tag" value="Add" onclick="javascript:$('#add_tag_link4').html('(' + $('#add_tag_newtag4').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer4\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer4').toggle();" />
 	  </div>
 	</div>
-</div>
+</div>   
+
+
 
 <div id="canvas">
 	<script type="text/javascript">
@@ -108,13 +110,34 @@
 	</script>
 	<div id="axis_horisontal"></div>
 	<div id="axis_vertical"></div>
-	<div id="axisname_top">sweet</div>
-	<div id="axisname_bottom">sour</div>
-	<div id="axisname_left">dark</div>
-	<div id="axisname_right">light</div>
+  
+	<div id="axisname_top">
+<form action="demo_form.asp">
+<input type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+</form></div>  
+
+  <div id="axisname_bottom">
+<form action="demo_form.asp">
+<input type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+</form></div>
+
+	<div id="axisname_left">
+<form action="demo_form.asp">
+<input type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+</form></div>
+
+	<div id="axisname_right"   
+<form action="demo_form.asp">
+<input type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+</form>
+
+  
+
 </div>
 
      </div>
+
  
 </body>
 </html>
+
