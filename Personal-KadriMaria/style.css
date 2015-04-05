@@ -29,7 +29,7 @@ body {
 #canvas {
 	float: left;
 	width:800px;
-	height:600px;
+	height:800px;
 	margin: 10px;
 	border: 5px solid #a0d73b;
 	clear:both;
