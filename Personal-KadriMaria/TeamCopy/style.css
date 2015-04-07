@@ -3,9 +3,24 @@ body {
 	font-size: 15px;
 	margin: 10px;
 }
-nav {
-	font-size: 20px;
+
+.img {
+	position: relative;
+	left: 650px;
+}
+
+.relative1 {
+	position: relative;
+	font-size: 18px;
 	margin: 10px;
+}
+
+.relative2 {
+	position: relative;
+	top: -60px;
+	left: 240px;
+	width: 500px;
+	line-height:6px;
 }
 
 #drag_window {
@@ -19,7 +34,7 @@ float: left;
 	width:800px;
 	float: left;
 	clear:both;
-	background: #d9f6fe;
+	background: #f2f2f2;
 	z-index: 100;
 }
 
@@ -65,7 +80,7 @@ float: left;
 	width:800px;
 	height:800px;
     margin-top: 20px;
-	background: #d9f6fe;
+	background: #f2f2f2;
 	clear:both;
 	z-index: -1;
 }
