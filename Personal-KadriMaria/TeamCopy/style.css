@@ -6,18 +6,20 @@ body {
 
 .img {
 	position: relative;
+	top: 15px;
 	left: 650px;
 }
 
 .relative1 {
 	position: relative;
+	top: -50px;
 	font-size: 18px;
 	margin: 10px;
 }
 
 .relative2 {
 	position: relative;
-	top: -60px;
+	top: -110px;
 	left: 240px;
 	width: 500px;
 	line-height:6px;
@@ -56,8 +58,7 @@ float: left;
  	width: 50px; 
  	height: 50px; 
  	padding: 5px; 
- 	border: 1px solid #333;
- 	background: #a0d73b;
+ 	background: #ffa61d;
  	text-align: center;
  	vertical-align: top;
  	float: left;
