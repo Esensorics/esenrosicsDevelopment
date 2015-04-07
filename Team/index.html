@@ -38,6 +38,9 @@
                   greedy: true
 });
       
+      $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
+   $(this).css({'background-color' : '#BEF781'});
+});
       
         $( "#canvas" ).droppable({
   drop: function(event,ui) {
@@ -48,8 +51,36 @@
       
    //to be replaced by a condition about axis   
       if((top == "") || (bott == "") ||(left == "")||(right == "")){
-                    
-        alert("To be able to drag items into canvas, please name all the axis first" );  
+       
+            
+          if(bott == ""){
+          $("#ax_b").css({'background-color' : '#FFBF00'});
+          $("#ax_b").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_b").focus();
+          }   
+          if(left == ""){
+          $("#ax_l").css({'background-color' : '#FFBF00'});
+          $("#ax_l").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_l").focus();
+
+          }   
+          if(right == ""){
+          $("#ax_r").css({'background-color' : '#FFBF00'});
+          $("#ax_r").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_r").focus();
+
+          } 
+          if(top == ""){
+          $("#ax_t").css({'background-color' : '#FFBF00'});
+          $("#ax_t").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_t").focus();
+          }  
+          
+     //   alert("To be able to drag items into canvas, please name all the axis first" );  
     $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
        $(ui.draggable).effect( "bounce", 
@@ -118,21 +149,21 @@
 	<div id="axis_vertical"></div>
   
 	<div id="axisname_top">
-<input id="ax_t" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+<input class="axis_name" id="ax_t" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
 </div>  
 
   <div id="axisname_bottom">
-<input id="ax_b" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+<input class="axis_name" id="ax_b" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
 </div>
 
 	<div id="axisname_left">
 
-<input id="ax_l" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+<input class="axis_name" id="ax_l" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
 </div>
 
 	<div id="axisname_right" >
 
-<input id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+<input class="axis_name" id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
 
 
   

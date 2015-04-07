@@ -38,6 +38,9 @@
                   greedy: true
 });
       
+      $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
+   $(this).css({'background-color' : '#BEF781'});
+});
       
         $( "#canvas" ).droppable({
   drop: function(event,ui) {
