@@ -11,23 +11,24 @@
 
   $(function() { 
 
+ //vocabulary for autocompelete
       var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
+      "Sweet",
+      "savory",
+      "salty",
+      "bitter",
+      "tart",
+      "smoky",
+      "rancid",
+      "spicy",
+      "hot",
+      "creamy",
+      "crumbly",
+      "crunchy",
+      "greasy",
+      "gooey",
+      "moist",
+      "mushy",
       "Perl",
       "PHP",
       "Python",
@@ -35,12 +36,12 @@
       "Scala",
       "Scheme"
     ];
-      
+//adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
       source: availableTags
     });
       
-      
+ 
    
  // this pice hides the tag window when we click somewhere else 
     $(document).click(function() {

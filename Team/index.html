@@ -11,6 +11,38 @@
 
   $(function() {   
    
+ //vocabulary for autocompelete
+      var availableTags = [
+      "Sweet",
+      "savory",
+      "salty",
+      "bitter",
+      "tart",
+      "smoky",
+      "rancid",
+      "spicy",
+      "hot",
+      "creamy",
+      "crumbly",
+      "crunchy",
+      "greasy",
+      "gooey",
+      "moist",
+      "mushy",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+//adding autocomplete to axis names      
+    $( ".axis_name" ).autocomplete({
+      source: availableTags
+    });      
+
+      
+      
  // this pice hides the tag window when we click somewhere else 
     $(document).click(function() {
         $(".add_tag_layer").hide();
