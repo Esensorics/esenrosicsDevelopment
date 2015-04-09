@@ -9,23 +9,51 @@
   <link rel="stylesheet" href="style.css">
   <script>
 
-  $(function() {   
+  $(function() { 
+
+      var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+      
+    $( ".axis_name" ).autocomplete({
+      source: availableTags
+    });
+      
+      
    
-   //   
-      
-      
+ // this pice hides the tag window when we click somewhere else 
     $(document).click(function() {
         $(".add_tag_layer").hide();
 });
 $(".add_tag_layer").click(function(e) {
-    e.stopPropagation(); // This is the preferred method.
-    return false;        // This should not be used unless you do not want
-                         // any click events registering inside the div
+    e.stopPropagation(); 
+    return false;        
+                        
 });  
-      
-      
-    //  
+    // end
 
+      
 	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
       
       
