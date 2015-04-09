@@ -11,6 +11,21 @@
 
   $(function() {   
    
+      
+         //   
+      
+      
+    $(document).click(function() {
+        $(".add_tag_layer").hide();
+});
+$(".add_tag_layer").click(function(e) {
+    e.stopPropagation(); // This is the preferred method.
+    return false;        // This should not be used unless you do not want
+                         // any click events registering inside the div
+});  
+      
+      
+    // 
 
 	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
       
