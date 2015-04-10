@@ -38,6 +38,7 @@ float: left;
  	height: 50px; 
  	padding: 5px; 
  	border: 1px solid #333;
+ 	border-radius: 50%;
  	background: #a0d73b;
  	text-align: center;
  	vertical-align: top;
