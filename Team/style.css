@@ -22,8 +22,8 @@ body {
 
 #canvas {
 	float: left;
-	width:800px;
-	height:800px;
+	width:700px;
+	height:700px;
 	background: #fff;
 	z-index: -1;
 }
@@ -102,19 +102,19 @@ body {
 }
 
 #axis_horisontal {
-	width: 800px;
+	width: 700px;
 	height: 1px;
 	position: relative;
-	margin-top: 399px;
-	border-bottom: 2px solid #d0c5c5;
+	margin-top: 349px;
+	border-bottom: 1px solid #d0c5c5;
 }
 #axis_vertical {
 	width: 1px;
-	height: 800px;
+	height: 700px;
 	position: relative;
-	top: -401px;
-	margin-left: 399px;
-	border-right: 2px solid #d0c5c5;
+	top: -351px;
+	margin-left: 349px;
+	border-right: 1px solid #d0c5c5;
 }
 #axisname_top {
 	display: cell;
