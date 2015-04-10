@@ -106,65 +106,49 @@ float: left;
 	border-right: 1px solid #666;
 }
 #axisname_top {
-	display: table-cell;
-	width: 100px;
-	height: 50px;
+	display: cell;
+	width: 0px;
+	height: 0px;
 	position: relative;
-	top: -1171px;
-	left: 320px;
-	border: 1px solid #000;
-	text-align: right;
+	top: -1202px;
+	left: 350px;
+	border: 0px solid #000;
 	vertical-align: bottom;
-	 writing-mode:tb-rl;
-    -webkit-transform:rotate(270deg);
-    -moz-transform:rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform:rotate(270deg);
-    transform: rotate(270deg);
 	z-index: 50;
 }
 
 #axisname_bottom {
-	display: table-cell;
-	width: 100px;
-	height: 50px;
+	display: cell;
+	width: 0px;
+	height: 0px;
 	position: relative;
-	top: -481px;
-	left: 218px;
-	border: 1px solid #000;
-	text-align: left;
+	top: -425px;
+	left: 350px;
+	border: 0px solid #000;
 	vertical-align: bottom;
-	 writing-mode:tb-rl;
-    -webkit-transform:rotate(270deg);
-    -moz-transform:rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform:rotate(270deg);
-    transform: rotate(270deg);
 	z-index: 50;
 }
 
 #axisname_left {
-	display: table-cell;
-	width: 100px;
-	height: 50px;
+	display: cell;
+	width: 0px;
+	height: 0px;
 	position: relative;
-	top: -855px;
-	left: -200px;
-	border: 1px solid #000;
-	text-align: left;
+	top: -815px;
+	left: -1px;
+	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
 
 #axisname_right {
-	display: table-cell;
-	width: 100px;
-	height: 50px;
+	display: cell;
+	width: 0px;
+	height: 0px;
 	position: relative;
-	top: -855px;
-	left: 390px;
-	border: 1px solid #000;
-	text-align: right;
+	top: -815px;
+	left: 697px;
+	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
