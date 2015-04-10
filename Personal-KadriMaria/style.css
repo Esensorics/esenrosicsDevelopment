@@ -76,19 +76,20 @@ float: left;
 }
 
 .add_tag_layer {
-	background: #f2f2f2;
+	background: #D1D0CF;
 	opacity: 0.6;
-	width:100px;
-	padding:5px;
+	width:90px;
+	padding:3px;
 	margin-left: -5px;
 	display: none;
 }
 .add_tag_layer input {
-	margin:5px;
-	background:white;
+	margin:3px;
+	background:#fff;
 	border:0px;
 	width:80px;
 }
+
 
 #axis_horisontal {
 	width: 800px;
