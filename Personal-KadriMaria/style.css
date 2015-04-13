@@ -5,18 +5,50 @@ body {
 	background: #f2f2f2;
 }
 
+#everything {
+	width:100%;
+}
+
+#leftinfo {
+	float: left;
+	width:230px;
+	min-height:1000px;
+	z-index: -1;
+}
+
+#rightinfo {
+	float: left;
+	min-height:1000px;
+	z-index: -1;
+}
+
+#canvas {
+	float: left;
+	width:700px;
+	height:700px;
+	background: #fff;
+	z-index: -1;
+}
+
+#canvas .ui-state-hover {
+	border: 5px solid red;
+	background: #ccc;
+}
+
+#canvas .ui-state-active {
+	border: 5px solid blue;
+	background: #eee;
+}
+
 #drag_window {
-float: left;
-	margin: 10px;
-	border: 5px solid transparent ;
-	clear:both;
+	float: left;
 }
 
 #items {
-	width:800px;
+	width:220px;
 	float: left;
-	clear:both;
 	z-index: 100;
+	margin-top: 20px;
 }
 
 #items .ui-selected { 
@@ -55,26 +87,6 @@ float: left;
  	font-size: 11px;
 }
 
-
-#canvas {
-	float: left;
-	width:800px;
-	height:800px;
-    margin-top: 20px;
-	background: #fff;
-	clear:both;
-	z-index: -1;
-}
-#canvas .ui-state-hover {
-	border: 5px solid red;
-	background: #ccc;
-}
-
-#canvas .ui-state-active {
-	border: 5px solid blue;
-	background: #eee;
-}
-
 .add_tag_layer {
 	background: #D1D0CF;
 	opacity: 0.6;
@@ -92,27 +104,27 @@ float: left;
 
 
 #axis_horisontal {
-	width: 800px;
+	width: 700px;
 	height: 1px;
 	position: relative;
-	margin-top: 399px;
-	border-bottom: 1px solid #666;
+	margin-top: 349px;
+	border-bottom: 1px solid #d0c5c5;
 }
 #axis_vertical {
 	width: 1px;
-	height: 800px;
+	height: 700px;
 	position: relative;
-	top: -401px;
-	margin-left: 399px;
-	border-right: 1px solid #666;
+	top: -351px;
+	margin-left: 349px;
+	border-right: 1px solid #d0c5c5;
 }
 #axisname_top {
 	display: cell;
 	width: 0px;
 	height: 0px;
 	position: relative;
-	top: -1202px;
-	left: 350px;
+	top: -1060px;
+	left: 292px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -123,8 +135,8 @@ float: left;
 	width: 0px;
 	height: 0px;
 	position: relative;
-	top: -425px;
-	left: 350px;
+	top: -350px;
+	left: 290px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -135,8 +147,8 @@ float: left;
 	width: 0px;
 	height: 0px;
 	position: relative;
-	top: -815px;
-	left: -1px;
+	top: -712px;
+	left: -119px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -147,8 +159,8 @@ float: left;
 	width: 0px;
 	height: 0px;
 	position: relative;
-	top: -815px;
-	left: 697px;
+	top: -712px;
+	left: 700px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;

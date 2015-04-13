@@ -141,6 +141,10 @@ $(".add_tag_layer").click(function(e) {
 </head>
 <body>
 
+<div id="everything">
+
+  <div id="leftinfo">
+
 <h1>Candy test</h1>
 <p>Dear visitor, thank you for tasting the candy samples. Please move the samples to the axes accordingly.</p>
  <div id="drag_window">
@@ -180,13 +184,15 @@ $(".add_tag_layer").click(function(e) {
 	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link4').html('(' + $('#add_tag_newtag4').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer4\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer4').toggle();" />
 	  </div>
 	</div>
-</div>   
+</div> 
+   </div>   
+  </div>  
 
 
-
-<div id="canvas">
-	<script type="text/javascript">
-		//$('#canvas').html('canvas: '+samplesList[2]['name']);
+  <div id="rightinfo">
+    <div id="canvas">
+    	<script type="text/javascript">
+      //$('#canvas').html('canvas: '+samplesList[2]['name']);
 	</script>
 	<div id="axis_horisontal"></div>
 	<div id="axis_vertical"></div>
@@ -205,15 +211,10 @@ $(".add_tag_layer").click(function(e) {
 </div>
 
 	<div id="axisname_right" >
-
-<input class="axis_name" id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
-
-
-  
-
+    <input class="axis_name" id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+  </div>
 </div>
-
-     </div>
+</div>
 
  
 </body>
