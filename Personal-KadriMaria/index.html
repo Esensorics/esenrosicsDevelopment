@@ -144,14 +144,17 @@ $(".add_tag_layer").click(function(e) {
 <div id="everything">
 
   <div id="leftinfo">
-
-<h1>Candy test</h1>
-<p>Dear visitor, thank you for tasting the candy samples. Please move the samples to the axes accordingly.</p>
+    <div id="h1">
+<h1>Candy Test</h1>
+</div>
+  <div id="p">
+<p>This could be the place for help text. The tasting is done simultaneously with placing the samples.</p>
+</div>
  <div id="drag_window">
 <div id="items">
 	<div id="draggable_item1" class="draggable_content">
 	  <p>Sample 1</p>
-	  <p id="add_tag_link1"><a href="javascript:$('#add_tag_layer1').toggle();$('#add_tag_newtag1').focus();">Add tag</a></p>
+	  <p id="add_tag_link1"><a href="javascript:$('#add_tag_layer1').toggle();$('#add_tag_newtag1').focus();">Tag</a></p>
 	  <div id="add_tag_layer1" class="add_tag_layer">
 	  	<input id="add_tag_newtag1" type="text" value="" />
 	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link1').html('(' + $('#add_tag_newtag1').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer1\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer1').toggle();" />
@@ -160,7 +163,7 @@ $(".add_tag_layer").click(function(e) {
 
 	<div id="draggable_item2" class="draggable_content">
 	  <p>Sample 2</p>
-	  <p id="add_tag_link2"><a href="javascript:$('#add_tag_layer2').toggle();$('#add_tag_newtag2').focus();">Add tag</a></p>
+	  <p id="add_tag_link2"><a href="javascript:$('#add_tag_layer2').toggle();$('#add_tag_newtag2').focus();">Tag</a></p>
 	  <div id="add_tag_layer2" class="add_tag_layer">
 	  	<input id="add_tag_newtag2" type="text" value="" />
 	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link2').html('(' + $('#add_tag_newtag2').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer2\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer2').toggle();" />
@@ -169,7 +172,7 @@ $(".add_tag_layer").click(function(e) {
 
 	<div id="draggable_item3" class="draggable_content">
 	  <p>Sample 3</p>
-	  <p id="add_tag_link3"><a href="javascript:$('#add_tag_layer3').toggle();$('#add_tag_newtag3').focus();">Add tag</a></p>
+	  <p id="add_tag_link3"><a href="javascript:$('#add_tag_layer3').toggle();$('#add_tag_newtag3').focus();">Tag</a></p>
 	  <div id="add_tag_layer3" class="add_tag_layer">
 	  	<input id="add_tag_newtag3" type="text" value="" />
 	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link3').html('(' + $('#add_tag_newtag3').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer3\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer3').toggle();" />
@@ -178,7 +181,7 @@ $(".add_tag_layer").click(function(e) {
 
 	<div id="draggable_item4" class="draggable_content">
 	  <p>Sample 4</p>
-	  <p id="add_tag_link4"><a href="javascript:$('#add_tag_layer4').toggle();$('#add_tag_newtag4').focus();">Add tag</a></p>
+	  <p id="add_tag_link4"><a href="javascript:$('#add_tag_layer4').toggle();$('#add_tag_newtag4').focus();">Tag</a></p>
 	  <div id="add_tag_layer4" class="add_tag_layer">
 	  	<input id="add_tag_newtag4" type="text" value="" />
 	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link4').html('(' + $('#add_tag_newtag4').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer4\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer4').toggle();" />
