@@ -59,8 +59,8 @@ $(".add_tag_layer").click(function(e) {
       
       
        var position = $("#draggable_item1").offset();
-      var x1 = position.left - 30;
-      var y1 = position.top - 130;
+      var x1 = position.left - 12;
+      var y1 = position.top - 170;
       
 	  $( "#drag_window" ).droppable({
   drop: function(event,ui) {
@@ -141,7 +141,7 @@ $(".add_tag_layer").click(function(e) {
 </head>
 <body>
 
-<div id="everything">
+ <div id="drag_window">
 
   <div id="leftinfo">
     <div id="h1">
@@ -150,7 +150,6 @@ $(".add_tag_layer").click(function(e) {
   <div id="p">
 <p>This could be the place for help text. The tasting is done simultaneously with placing the samples.</p>
 </div>
- <div id="drag_window">
 <div id="items">
 	<div id="draggable_item1" class="draggable_content">
 	  <p>Sample 1</p>
@@ -188,7 +187,7 @@ $(".add_tag_layer").click(function(e) {
 	  </div>
 	</div>
 </div> 
-   </div>   
+  
   </div>  
 
 
@@ -216,6 +215,7 @@ $(".add_tag_layer").click(function(e) {
 	<div id="axisname_right" >
     <input class="axis_name" id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
   </div>
+</div>
 </div>
 </div>
 
