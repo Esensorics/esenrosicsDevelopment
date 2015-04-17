@@ -111,6 +111,18 @@ body {
 	width:80px;
 }
 
+#savebutton {
+  float: left;
+  padding-top:60px;
+	vertical-align: left;
+}
+
+#submitbutton {
+  float: left;
+  padding-top:10px;
+	vertical-align: left;
+}
+
 
 #axis_horisontal {
 	width: 700px;
@@ -133,7 +145,7 @@ body {
 	height: 0px;
 	position: relative;
 	top: -1051px;
-	left: 305px;
+	left: 295px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -145,7 +157,7 @@ body {
 	height: 0px;
 	position: relative;
 	top: -369px;
-	left: 305px;
+	left: 295px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -169,8 +181,10 @@ body {
 	height: 0px;
 	position: relative;
 	top: -712px;
-	left: 613px;
+	left: 575px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
+
+
