@@ -58,14 +58,15 @@ $(".add_tag_layer").click(function(e) {
       
 for(cloneCount = 2 ; cloneCount <= N; cloneCount++){
           var prev_id= 'draggable_item'+ (cloneCount-1);
- $("#draggable_item1").clone().attr('id', 'draggable_item'+ cloneCount).insertAfter(document.getElementById(prev_id));
-
+ var new_item = $("#draggable_item1").clone().attr('id', 'draggable_item'+ cloneCount);
+ new_item.insertAfter(document.getElementById(prev_id));
+new_item.draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
     
 }
       
       
 //////////////////////////////////////////////////////////      
-	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
+	
       
      
       
