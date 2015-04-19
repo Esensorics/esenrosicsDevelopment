@@ -57,15 +57,11 @@ $(".add_tag_layer").click(function(e) {
       
 	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
       
+     
       
-       var position = $("#draggable_item1").offset();
-      var x1 = position.left - 12;
-      var y1 = position.top - 170;
-      
-  x1 = getOffsetLeft(document.getElementById("draggable_item1"));
- y1 = getOffsetTop(document.getElementById("draggable_item1"));
-      y1= y1 - 170;
-      
+///// 
+      x1 =1;
+      y1=1;
 	  $( "#drag_window" ).droppable({
   drop: function(event,ui) {
     
@@ -79,16 +75,16 @@ $(".add_tag_layer").click(function(e) {
   }
         
 });
-      
+//***********************     
       
        $( "#canvas" ).droppable({
                   greedy: true
 });
-      
+//*********************      
       $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
    $(this).css({'background-color' : '#BEF781'});
 });
-      
+//************************    
         $( "#canvas" ).droppable({
   drop: function(event,ui) {
     var top= $( "#ax_t" ).val();
@@ -138,9 +134,10 @@ $(".add_tag_layer").click(function(e) {
         
 });
 
-
   });
-     
+      
+ //******************
+    
       function submit_function( ){
         var alert_text="submitted sucsessfully!";
           var top= $( "#ax_t" ).val();
@@ -153,44 +150,54 @@ $(".add_tag_layer").click(function(e) {
       if((top == "") || (bott == "") ||(left == "")||(right == "")){
       alert_text="You need to name the axis and place the items in the canvas, before you be able to submit!";
       }else{
-          //get items position
-          x1 = getOffsetLeft(document.getElementById("draggable_item1"));
-         y1 = getOffsetTop(document.getElementById("draggable_item1"));
-      
-      
-    
+//get canvas position
+   var Cposition = getPosition(document.getElementById("canvas"));
+ cx=position.x;
+  cy=position.y;       
           
+          //get items position
+ position = getPosition(document.getElementById("draggable_item1"));
+ x1=position.x;
+ y1=position.y;
+          
+  position = getPosition(document.getElementById("draggable_item2"));
+ x2=position.x;
+ y2=position.y;
+  
+  position = getPosition(document.getElementById("draggable_item3"));
+ x3=position.x;
+ y3=position.y;
+          
+          
+ position = getPosition(document.getElementById("draggable_item4"));
+ x4=position.x;
+ y4=position.y;
+ if((x1 < cx) || (x2 < cx) ||(x3 < cx) ||(x4 < cx) ||(y1 < cy) || (y2 < cy) || (y3 < cy) || (y4 < cy)){
+ alert_text = "You need to locate all the items in the canvas before you beable to submit!";
+ }         
           
       }
-       alert(x1+"  and "+y1);
+
+      
+      
+          
+       alert(alert_text);
 }
           
-          
-//get left      
-  function getOffsetLeft( elem )
-{
-    var offsetLeft = 0;
-    do {
-      if ( !isNaN( elem.offsetLeft ) )
-      {
-          offsetLeft += elem.offsetLeft;
-      }
-    } while( elem = elem.offsetParent );
-    return offsetLeft;
-}    
-//get top
- function getOffsetTop( elem )
-{
-    var offsetTop = 0;
-    do {
-      if ( !isNaN( elem.offsetTop ) )
-      {
-          offsetTop += elem.offsetTop;
-      }
-    } while( elem = elem.offsetParent );
-    return offsetTop;
-}    
-         
+//************************          
+//get position      
+ function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
+  
+    while(element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+    return { x: xPosition, y: yPosition };
+}   
+//************************         
           
           
   </script>
