@@ -233,6 +233,23 @@ return items_out;
     return { x: xPosition, y: yPosition };
 }   
 //************************         
+//add tag funcction
+function add_tag_button(element){
+var id=element.id;  
+var num = parseInt( id.match(/\d+/g), 10 );
+    
+var tag = $('#add_tag_newtag'+num).val();    
+$('#add_tag_link'+num).text(tag);
+    
+var a=document.createElement('a');
+a.href="javascript:$('#add_tag_layer"+num+"').toggle();$('#add_tag_newtag"+num+"').focus();";   
+  
+ var img = new Image();
+img.src = 'img/icon_edit.png';
+img.width =10 ;    
+a.appendChild(img);
+(document.getElementById('add_tag_link'+num)).appendChild(a);
+}
           
           
   </script>
@@ -251,10 +268,10 @@ return items_out;
 <div id="items">
 	<div id="draggable_item1" class="draggable_content">
 	  <p id="title1">Sample 1</p>
-	  <p id="add_tag_link1"><a href="javascript:this.toggle();$('#add_tag_newtag1').focus();">Tag</a></p>
+	  <p id="add_tag_link1"><a href="javascript:$('#add_tag_layer1').toggle();$('#add_tag_newtag1').focus();">Tag</a></p>
 	  <div id="add_tag_layer1" class="add_tag_layer">
 	  	<input id="add_tag_newtag1" type="text" value="" />
-	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link1').html('(' + $('#add_tag_newtag1').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer1\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer1').toggle();" />
+	  	<input id="add_tag_button1" type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="add_tag_button(this);" />
 	  </div>
 	</div>
 
