@@ -184,7 +184,33 @@ $(".add_tag_layer").click(function(e) {
        alert(alert_text);
 }
           
-//************************          
+//************************   
+//check if all samples are in canvas and return the ones who are not
+ function check_items_onCanvas(element) {
+     var position = getPosition(document.getElementById("canvas"));
+ cx=position.x;
+  cy=position.y;       
+          
+          //get items position
+ position = getPosition(document.getElementById("draggable_item1"));
+ x1=position.x;
+ y1=position.y;
+          
+  position = getPosition(document.getElementById("draggable_item2"));
+ x2=position.x;
+ y2=position.y;
+  
+  position = getPosition(document.getElementById("draggable_item3"));
+ x3=position.x;
+ y3=position.y;
+          
+          
+ position = getPosition(document.getElementById("draggable_item4"));
+ x4=position.x;
+ y4=position.y;
+ }
+      
+      
 //get position      
  function getPosition(element) {
     var xPosition = 0;
