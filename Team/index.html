@@ -62,6 +62,10 @@ $(".add_tag_layer").click(function(e) {
       var x1 = position.left - 12;
       var y1 = position.top - 170;
       
+  x1 = getOffsetLeft(document.getElementById("draggable_item1"));
+ y1 = getOffsetTop(document.getElementById("draggable_item1"));
+      y1= y1 - 170;
+      
 	  $( "#drag_window" ).droppable({
   drop: function(event,ui) {
     
@@ -143,15 +147,52 @@ $(".add_tag_layer").click(function(e) {
           var bott= $( "#ax_b" ).val();
           var left = $( "#ax_l" ).val();
           var right= $( "#ax_r" ).val();
-      
+      var  x1 = 1;
+          var  y1= 1; 
    //to be replaced by a condition about axis   
       if((top == "") || (bott == "") ||(left == "")||(right == "")){
       alert_text="You need to name the axis and place the items in the canvas, before you be able to submit!";
+      }else{
+          //get items position
+          x1 = getOffsetLeft(document.getElementById("draggable_item1"));
+         y1 = getOffsetTop(document.getElementById("draggable_item1"));
+      
+      
+    
+          
+          
       }
-       alert(alert_text);
+       alert(x1+"  and "+y1);
 }
-      
-      
+          
+          
+//get left      
+  function getOffsetLeft( elem )
+{
+    var offsetLeft = 0;
+    do {
+      if ( !isNaN( elem.offsetLeft ) )
+      {
+          offsetLeft += elem.offsetLeft;
+      }
+    } while( elem = elem.offsetParent );
+    return offsetLeft;
+}    
+//get top
+ function getOffsetTop( elem )
+{
+    var offsetTop = 0;
+    do {
+      if ( !isNaN( elem.offsetTop ) )
+      {
+          offsetTop += elem.offsetTop;
+      }
+    } while( elem = elem.offsetParent );
+    return offsetTop;
+}    
+         
+          
+          
   </script>
 </head>
 <body>
