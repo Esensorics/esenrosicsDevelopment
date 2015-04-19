@@ -1,5 +1,8 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
 body {
-	font-family: "Arial";
 	margin: 10px;
 	background: #f2f2f2;
 }
@@ -119,13 +122,12 @@ vertical-align: middle;
 
 #submitbutton {
     margin-top: 20px;	
- border-radius: 10px;
-    width: 200px;
+ 	border-radius: 10px;
+    width: 100px;
     height: 50px;
-	vertical-align: left;
+	vertical-align: middle;
     background: #A9F5D0;
 }
-
 
 
 #axis_horisontal {
@@ -148,9 +150,8 @@ vertical-align: middle;
 	width: 0px;
 	height: 0px;
 	position: relative;
-	top: -1051px;
-	left: 295px;
-	border: 0px solid #000;
+	top: -1053px;
+	left: 312px;
 	vertical-align: bottom;
 	z-index: 50;
 }
@@ -160,8 +161,8 @@ vertical-align: middle;
 	width: 0px;
 	height: 0px;
 	position: relative;
-	top: -369px;
-	left: 295px;
+	top: -371px;
+	left: 312px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -185,7 +186,7 @@ vertical-align: middle;
 	height: 0px;
 	position: relative;
 	top: -712px;
-	left: 575px;
+	left: 625px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
