@@ -56,18 +56,55 @@ $(".add_tag_layer").click(function(e) {
       
 //here I make N number of instances of draggable item
 var N = item_instances;
- //make first item dragable
-$("#draggable_item1").draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
-      
-for(cloneCount = 2 ; cloneCount <= N; cloneCount++){
-//previous item
-var prev_id= 'draggable_item'+ (cloneCount-1);
-//creat new item and edit id
- var new_item = $("#draggable_item1").clone().attr('id', 'draggable_item'+ cloneCount);
-//add new item after prevois one  
- new_item.insertAfter(document.getElementById(prev_id));
+
+for(cloneCount = 1 ; cloneCount <= N; cloneCount++){   
+    
+ //creat draggable item
+ var new_item = document.createElement('div');
+new_item.setAttribute('id','draggable_item'+ cloneCount);
+  new_item.setAttribute('class',"draggable_content");
+   
+    
+  //creat name p and its text
+ var p1 = document.createElement("p");
+ var node1 = document.createTextNode("Item "+cloneCount);  
+ p1.appendChild(node1);    
+ new_item.appendChild(p1);   
+ //  the add tag link(add_tag_link)
+var p2 = document.createElement("p");
+p2.id="add_tag_link"+ cloneCount;
+var a1=document.createElement('a');
+a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
+var node2 = document.createTextNode("Tag");  
+ a1.appendChild(node2);    
+p2.appendChild(a1);
+new_item.appendChild(p2);    
+ //add_tag_layer div 
+var div1 = document.createElement("div");
+div1.id="add_tag_layer"+ cloneCount;    
+div1.setAttribute('class',"add_tag_layer");
+    //input1
+    var in1 = document.createElement("input");
+    in1.id="add_tag_newtag"+ cloneCount;
+    in1.type="text";
+    in1.value="";
+    div1.appendChild(in1);
+    //input2
+    var in2 = document.createElement("input");
+    in2.id="add_tag_newtag"+ cloneCount;
+    in2.type="button";
+    in2.name="tag";
+    in2.setAttribute('class',"add_tag_layer_button");
+    in2.value="Add";
+    in2.setAttribute('onclick',"add_tag_button(this);");
+    div1.appendChild(in2);
+ new_item.appendChild(div1);
+  
+//add new item to items
+ ( document.getElementById("items")).appendChild(new_item);    
+
 //make item dragable
-new_item.draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
+$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
 //
     
 }
@@ -171,6 +208,7 @@ alert_text = "Please locate all the items on the canvas before submition!";
 for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
     var current_id= 'draggable_item'+ cloneCount;
     var current_item = document.getElementById(current_id);
+
     //get items position
  position = getPosition(current_item);
  x=position.x;
