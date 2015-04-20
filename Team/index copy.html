@@ -164,13 +164,29 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
  //******************
  //the function that is activated after "submit botton is pressed"   
       function submit_function( ){
-        var alert_text="submitted sucsessfully!";
 //check if axis have names          
           var top= $( "#ax_t" ).val();
           var bott= $( "#ax_b" ).val();
           var left = $( "#ax_l" ).val();
           var right= $( "#ax_r" ).val();
         
+     var alert_text="Submitted sucsessfully! Positions of elements to be saved in database: \n" ; 
+          
+    
+    
+    
+       var item_s = (document.getElementById("items")).childNodes;
+          for( i = 1 , j = item_s.length; i < j ; i++ ){
+   // if( item_s[ i ].getAttribute("class") == "draggable_content" ){
+        alert_text = alert_text+ "Sample"+ i+": x = " + getPosition(item_s[ i ]).x + ", y = " + getPosition(item_s[ i ]).y + "\n";
+   // }
+    }
+          
+    
+    
+             
+              
+          
       if((top == "") || (bott == "") ||(left == "")||(right == "")){
           axis_shake();
       alert_text="You need to name the axis and place the items in the canvas, before you be able to submit!";
