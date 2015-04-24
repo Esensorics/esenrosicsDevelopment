@@ -149,7 +149,7 @@ vertical-align: middle;
 	height: 0px;
 	position: relative;
 	top: -1051px;
-	left: 305px;
+	left: 295px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -161,7 +161,7 @@ vertical-align: middle;
 	height: 0px;
 	position: relative;
 	top: -369px;
-	left: 305px;
+	left: 295px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -189,6 +189,16 @@ vertical-align: middle;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
+}
+
+#p{
+height: 100px;
+    width: 200px;
+    border-radius: 10px;
+background: #A9F5D0;
+}
+#pp{
+padding: 10px;
 }
 
 
