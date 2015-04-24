@@ -112,36 +112,15 @@ body {
 }
 
 #savebutton {
-margin-top: 50px;	
-width: 100px;
-vertical-align: middle;
+  float: left;
+  padding-top:60px;
+	vertical-align: left;
 }
 
 #submitbutton {
-    margin-top: 33px;	
- border-radius: 10px;
-    width: 200px;
-    height: 50px;
+  float: left;
+  padding-top:10px;
 	vertical-align: left;
-    background: #A9F5D0;
-}
-
-#popupaxis {
-    margin-top: 23px;	
-    	margin-left: -405px;
-    width: 1px;
-    height: 1px;
-	vertical-align: left;
-    background: #A9F5D0;
-}
-
-#popupaxis2 {
-    margin-top: 362px;	
-    	margin-left: -700px;
-    width: 1px;
-    height: 1px;
-	vertical-align: left;
-    background: #A9F5D0;
 }
 
 
