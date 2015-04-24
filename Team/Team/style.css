@@ -202,3 +202,8 @@ padding: 10px;
 }
 
 
+.ui-autocomplete.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 10px;
+}
+

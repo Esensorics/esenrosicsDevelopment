@@ -53,7 +53,9 @@ var item_instances = 6;
         response(matches);
     }
 });
-
+      
+      
+  
       
       
  // this pice hides the tag window when we click somewhere else 
@@ -99,12 +101,13 @@ div1.setAttribute('class',"add_tag_layer");
     //input1
     var in1 = document.createElement("input");
     in1.id="add_tag_newtag"+ cloneCount;
+    in1.setAttribute('class',"add_tag_newtag");
     in1.type="text";
     in1.value="";
     div1.appendChild(in1);
     //input2
     var in2 = document.createElement("input");
-    in2.id="add_tag_newtag"+ cloneCount;
+    in2.id="add_tag_newtag_but"+ cloneCount;
     in2.type="button";
     in2.name="tag";
     in2.setAttribute('class',"add_tag_layer_button");
@@ -119,6 +122,20 @@ div1.setAttribute('class',"add_tag_layer");
 //make item dragable
 $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
 //
+   
+    
+       
+//tag suto-compeletr      
+   $( ".add_tag_newtag" ).autocomplete({
+    source: function (request, response) {
+        var matches = $.map(availableTags, function (acItem) {
+            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
+                return acItem;
+            }
+        });
+        response(matches);
+    }
+});
     
 }
       
