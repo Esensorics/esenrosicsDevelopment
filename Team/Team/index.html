@@ -11,12 +11,23 @@
 var item_instances = 6;
   $(function() {   
    
-    $("#ax_b","#ax_t","#ax_r","#ax_l").change(function () {
-   if (this.value != "" || this.value.length > 0) {
-$("#p").css("background","#F5A9A9");
-   
-   }
-});  
+   //returning the help window to green when started typing     
+    $("#ax_t").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    });  
+      $("#ax_b").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    }); 
+      $("#ax_l").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    }); 
+      $("#ax_r").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    }); 
       
       
  //vocabulary for autocompelete
