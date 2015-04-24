@@ -44,6 +44,7 @@ var item_instances = 6;
     ];
 //adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
+        
     source: function (request, response) {
         var matches = $.map(availableTags, function (acItem) {
             if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
@@ -54,8 +55,8 @@ var item_instances = 6;
     }
 });
       
-      
-  
+//make it faster      
+   $( ".axis_name" ).autocomplete({delay: 100});
       
       
  // this pice hides the tag window when we click somewhere else 
@@ -136,6 +137,10 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
         response(matches);
     }
 });
+    
+ //make it faster      
+   $( ".add_tag_newtag" ).autocomplete({delay: 100});
+         
     
 }
       
