@@ -11,6 +11,14 @@
 var item_instances = 6;
   $(function() {   
    
+    $("#ax_b","#ax_t","#ax_r","#ax_l").change(function () {
+   if (this.value != "" || this.value.length > 0) {
+$("#p").css("background","#F5A9A9");
+   
+   }
+});  
+      
+      
  //vocabulary for autocompelete
       var availableTags = [
       "Sweet",
