@@ -4,11 +4,16 @@
   <meta charset="utf-8">
   <title>Esensorics test prototype</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type= "text/javascript" 
+  src="extjs/ext-all-debug.js"></script>
+  <script type="text/javascript" 
+  src="app.js"></script>
   <link rel="stylesheet" href="style.css">
   <script>
-
+var item_instances = 6;
   $(function() {   
    
  //vocabulary for autocompelete
@@ -52,16 +57,68 @@ $(".add_tag_layer").click(function(e) {
     return false;        
                         
 });  
-    // end
 
       
-	$( "#draggable_item1, #draggable_item2, #draggable_item3, #draggable_item4" ).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
+//here I make N number of instances of draggable item
+var N = item_instances;
+
+for(cloneCount = 1 ; cloneCount <= N; cloneCount++){   
+    
+ //creat draggable item
+ var new_item = document.createElement('div');
+new_item.setAttribute('id','draggable_item'+ cloneCount);
+  new_item.setAttribute('class',"draggable_content");
+   
+    
+  //creat name p and its text
+ var p1 = document.createElement("p");
+ var node1 = document.createTextNode("Sample "+cloneCount);  
+ p1.appendChild(node1);    
+ new_item.appendChild(p1);   
+ //  the add tag link(add_tag_link)
+var p2 = document.createElement("p");
+p2.id="add_tag_link"+ cloneCount;
+var a1=document.createElement('a');
+a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
+var node2 = document.createTextNode("Tag");  
+ a1.appendChild(node2);    
+p2.appendChild(a1);
+new_item.appendChild(p2);    
+ //add_tag_layer div 
+var div1 = document.createElement("div");
+div1.id="add_tag_layer"+ cloneCount;    
+div1.setAttribute('class',"add_tag_layer");
+    //input1
+    var in1 = document.createElement("input");
+    in1.id="add_tag_newtag"+ cloneCount;
+    in1.type="text";
+    in1.value="";
+    div1.appendChild(in1);
+    //input2
+    var in2 = document.createElement("input");
+    in2.id="add_tag_newtag"+ cloneCount;
+    in2.type="button";
+    in2.name="tag";
+    in2.setAttribute('class',"add_tag_layer_button");
+    in2.value="Add";
+    in2.setAttribute('onclick',"add_tag_button(this);");
+    div1.appendChild(in2);
+ new_item.appendChild(div1);
+  
+//add new item to items
+ ( document.getElementById("items")).appendChild(new_item);    
+
+//make item dragable
+$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
+//
+    
+}
       
       
-       var position = $("#draggable_item1").offset();
-      var x1 = position.left - 12;
-      var y1 = position.top - 170;
-      
+//////////////////////////////////////////////////////////      
+ 
+      x1 =1;
+      y1=1;
 	  $( "#drag_window" ).droppable({
   drop: function(event,ui) {
     
@@ -75,16 +132,16 @@ $(".add_tag_layer").click(function(e) {
   }
         
 });
-      
+//***********************     
       
        $( "#canvas" ).droppable({
                   greedy: true
 });
-      
+//*********************      
       $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
    $(this).css({'background-color' : '#BEF781'});
 });
-      
+//************************    
         $( "#canvas" ).droppable({
   drop: function(event,ui) {
     var top= $( "#ax_t" ).val();
@@ -94,9 +151,104 @@ $(".add_tag_layer").click(function(e) {
       
    //to be replaced by a condition about axis   
       if((top == "") || (bott == "") ||(left == "")||(right == "")){
+       axis_shake();
+                      
+     
+    $(ui.draggable).animate({ top: y1, left:x1},400);
+     // var draggableId = ui.draggable.attr("id");
+       $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 );
+      
+      }
+  }
+        
+});
+
+  });
+      
+ //******************
+ //the function that is activated after "submit botton is pressed"   
+      function submit_function( ){
+//check if axis have names          
+          var top= $( "#ax_t" ).val();
+          var bott= $( "#ax_b" ).val();
+          var left = $( "#ax_l" ).val();
+          var right= $( "#ax_r" ).val();
+        
+     var alert_text="Submitted sucsessfully! Positions of elements to be saved in database: \n" ; 
+          
+    
+    
+    
+       var item_s = (document.getElementById("items")).childNodes;
+          for( i = 1 , j = item_s.length; i < j ; i++ ){
+   // if( item_s[ i ].getAttribute("class") == "draggable_content" ){
+        alert_text = alert_text+ "Sample"+ i+": x = " + getPosition(item_s[ i ]).x + ", y = " + getPosition(item_s[ i ]).y + "\n";
+   // }
+    }
+          
+    
+    
+             
+              
+          
+      if((top == "") || (bott == "") ||(left == "")||(right == "")){
+          axis_shake();
+      alert_text="You need to name the axis and place the items in the canvas, before you be able to submit!";
+      }else{
+
        
-            
-          if(bott == ""){
+          
+//if there are elements out of canvas 
+var items_out = check_items_onCanvas();
+           
+if (items_out.length > 0 ){
+    
+ for(i = 0; i< items_out.length; i++ ){
+     var id = "#" + items_out[i];
+     $(id).effect( "bounce",{times:3}, 300 );
+ } 
+ 
+alert_text = "Please locate all the items on the canvas before submition!";
+
+}
+     
+      }
+          
+       alert(alert_text);
+}
+          
+//************************   
+//check if all samples are in canvas and return the ones who are not
+ function check_items_onCanvas() {
+    var items_out = []; 
+    
+     var position = getPosition(document.getElementById("canvas"));
+ cx=position.x;
+  cy=position.y;       
+for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
+    var current_id= 'draggable_item'+ cloneCount;
+    var current_item = document.getElementById(current_id);
+
+    //get items position
+ position = getPosition(current_item);
+ x=position.x;
+ y=position.y;
+   if(x < cx){ items_out.push(current_id);
+             }
+}
+     
+return items_out;
+ }
+//****************************      
+ //function that checks if axis have name if not shake the lable and change color
+ function axis_shake(){
+  var top= $( "#ax_t" ).val();
+    var bott= $( "#ax_b" ).val();
+     var left = $( "#ax_l" ).val();
+     var right= $( "#ax_r" ).val();
+     
+  if(bott == ""){
           $("#ax_b").css({'background-color' : '#FFBF00'});
           $("#ax_b").effect( "bounce", 
           {times:2}, 300 );
@@ -122,21 +274,43 @@ $(".add_tag_layer").click(function(e) {
           {times:2}, 300 );
           $("#ax_t").focus();
           }  
+ 
+ 
+ }     
+      
+      
+//get position      
+ function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
+  
+    while(element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+    return { x: xPosition, y: yPosition };
+}   
+//************************         
+//add tag funcction
+function add_tag_button(element){
+var id=element.id;  
+var num = parseInt( id.match(/\d+/g), 10 );
+    
+var tag = $('#add_tag_newtag'+num).val();    
+$('#add_tag_link'+num).text(tag);
+    
+var a=document.createElement('a');
+a.href="javascript:$('#add_tag_layer"+num+"').toggle();$('#add_tag_newtag"+num+"').focus();";   
+  
+ var img = new Image();
+img.src = 'img/icon_edit.png';
+img.width =10 ;    
+a.appendChild(img);
+(document.getElementById('add_tag_link'+num)).appendChild(a);
+}
           
-     //   alert("To be able to drag items into canvas, please name all the axis first" );  
-    $(ui.draggable).animate({ top: y1, left:x1},400);
-     // var draggableId = ui.draggable.attr("id");
-       $(ui.draggable).effect( "bounce", 
-          {times:3}, 300 );
-      
-      }
-  }
-        
-});
-
-
-  });
-      
+          
   </script>
 </head>
 <body>
@@ -151,52 +325,16 @@ $(".add_tag_layer").click(function(e) {
 <p>This could be the place for help text. The tasting is done simultaneously with placing the samples.</p>
 </div>
 <div id="items">
-	<div id="draggable_item1" class="draggable_content">
-	  <p>Sample 1</p>
-	  <p id="add_tag_link1"><a href="javascript:$('#add_tag_layer1').toggle();$('#add_tag_newtag1').focus();">Tag</a></p>
-	  <div id="add_tag_layer1" class="add_tag_layer">
-	  	<input id="add_tag_newtag1" type="text" value="" />
-	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link1').html('(' + $('#add_tag_newtag1').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer1\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer1').toggle();" />
-	  </div>
-	</div>
+	
 
-	<div id="draggable_item2" class="draggable_content">
-	  <p>Sample 2</p>
-	  <p id="add_tag_link2"><a href="javascript:$('#add_tag_layer2').toggle();$('#add_tag_newtag2').focus();">Tag</a></p>
-	  <div id="add_tag_layer2" class="add_tag_layer">
-	  	<input id="add_tag_newtag2" type="text" value="" />
-	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link2').html('(' + $('#add_tag_newtag2').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer2\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer2').toggle();" />
-	  </div>
-	</div>
-
-	<div id="draggable_item3" class="draggable_content">
-	  <p>Sample 3</p>
-	  <p id="add_tag_link3"><a href="javascript:$('#add_tag_layer3').toggle();$('#add_tag_newtag3').focus();">Tag</a></p>
-	  <div id="add_tag_layer3" class="add_tag_layer">
-	  	<input id="add_tag_newtag3" type="text" value="" />
-	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link3').html('(' + $('#add_tag_newtag3').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer3\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer3').toggle();" />
-	  </div>
-	</div>
-
-	<div id="draggable_item4" class="draggable_content">
-	  <p>Sample 4</p>
-	  <p id="add_tag_link4"><a href="javascript:$('#add_tag_layer4').toggle();$('#add_tag_newtag4').focus();">Tag</a></p>
-	  <div id="add_tag_layer4" class="add_tag_layer">
-	  	<input id="add_tag_newtag4" type="text" value="" />
-	  	<input type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="javascript:$('#add_tag_link4').html('(' + $('#add_tag_newtag4').val() + ') <a href=&quot;javascript:$(\'#add_tag_layer4\').toggle();&quot;><img src=&quot;img/icon_edit.png&quot; width=&quot;10&quot; /></a>'); $('#add_tag_layer4').toggle();" />
-	  </div> 
-    
-    <div id="savebutton">
-   <button type="button" onclick="alert('Your results have been saved')">Save</button>  
-     </div> 
-     
-     <div id="submitbutton">
-     <button type="button" onclick="alert('Thank you! Your results have been submitted')">Submit</button> 
-       </div> 
-     
-	</div> 
 </div> 
+      
+
+     <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
+    
   </div> 
+  
+  
   
       
 
@@ -211,7 +349,8 @@ $(".add_tag_layer").click(function(e) {
   
 	<div id="axisname_top">
 <input class="axis_name" id="ax_t" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
-</div>  
+</div> 
+ 
 
   <div id="axisname_bottom">
 <input class="axis_name" id="ax_b" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
@@ -225,6 +364,16 @@ $(".add_tag_layer").click(function(e) {
 	<div id="axisname_right" >
     <input class="axis_name" id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
   </div>
+  
+  </div> 
+  <button type="button" id="popupaxis" title="Please name the top and bottom axis"> </button>
+  </div> 
+  
+  </div> 
+  <button type="button" id="popupaxis2" title="Please name the left and right axis"> </button>
+  </div> 
+  
+  
 </div>
 </div>
 </div>
