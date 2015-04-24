@@ -57,8 +57,15 @@ var item_instances = 6;
     ];
 //adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
-      source: availableTags
-    });      
+    source: function (request, response) {
+        var matches = $.map(availableTags, function (acItem) {
+            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
+                return acItem;
+            }
+        });
+        response(matches);
+    }
+});
 
       
       
