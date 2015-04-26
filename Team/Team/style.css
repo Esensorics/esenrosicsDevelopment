@@ -84,6 +84,7 @@ body {
  	vertical-align: top;
  	float: left;
  	cursor: all-scroll;
+    
  	z-index: 100;
 }
 .draggable_content .ui-state-highlight {
@@ -97,12 +98,15 @@ body {
 }
 
 .add_tag_layer {
+
 	background: #D1D0CF;
 	opacity: 0.6;
 	width:90px;
 	padding:3px;
 	margin-left: -5px;
 	display: none;
+    z-index: 200;
+
 }
 .add_tag_layer input {
 	margin:3px;
