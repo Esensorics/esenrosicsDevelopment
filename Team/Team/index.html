@@ -87,7 +87,12 @@ new_item.setAttribute('id','draggable_item'+ cloneCount);
     
   //creat name p and its text
  var p1 = document.createElement("p");
- var node1 = document.createTextNode("Sample "+cloneCount);  
+    
+// var node1 = document.createTextNode(cloneCount);  
+ var node1 = document.createElement("b");
+    node1.style.fontSize = "15px";
+  node1.innerHTML = cloneCount;
+    
  p1.appendChild(node1);    
  new_item.appendChild(p1);   
  //  the add tag link(add_tag_link)
