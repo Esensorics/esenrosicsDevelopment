@@ -334,8 +334,10 @@ function add_tag_button(element){
 var id=element.id;  
 var num = parseInt( id.match(/\d+/g), 10 );
     
-var tag = $('#add_tag_newtag'+num).val();    
-$('#add_tag_link'+num).text(tag);
+var tag = $('#add_tag_newtag'+num).val();   
+var tag_count = tag.split(",").length ;
+    
+$('#add_tag_link'+num).text(tag_count+"tag");
     
 var a=document.createElement('a');
 a.href="javascript:$('#add_tag_layer"+num+"').toggle();$('#add_tag_newtag"+num+"').focus();";   
