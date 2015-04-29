@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   <title>Esensorics test prototype</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script type= "text/javascript" 
-  src="extjs/ext-all-debug.js"></script>
-  <script type="text/javascript" 
-  src="app.js"></script>
   <link rel="stylesheet" href="style.css">
   <script>
 var item_instances = 6;
   $(function() {   
    
+  //returning the help window to green when started typing     
+    $( ".axis_name" ).keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    }); 
+     
  //vocabulary for autocompelete
       var availableTags = [
       "Sweet",
@@ -43,9 +44,19 @@ var item_instances = 6;
     ];
 //adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
-      source: availableTags
-    });      
-
+        
+    source: function (request, response) {
+        var matches = $.map(availableTags, function (acItem) {
+            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
+                return acItem;
+            }
+        });
+        response(matches);
+    }
+});
+      
+//make it faster      
+   $( ".axis_name" ).autocomplete({delay: 100});
       
       
  // this pice hides the tag window when we click somewhere else 
@@ -91,12 +102,13 @@ div1.setAttribute('class',"add_tag_layer");
     //input1
     var in1 = document.createElement("input");
     in1.id="add_tag_newtag"+ cloneCount;
+    in1.setAttribute('class',"add_tag_newtag");
     in1.type="text";
     in1.value="";
     div1.appendChild(in1);
     //input2
     var in2 = document.createElement("input");
-    in2.id="add_tag_newtag"+ cloneCount;
+    in2.id="add_tag_newtag_but"+ cloneCount;
     in2.type="button";
     in2.name="tag";
     in2.setAttribute('class',"add_tag_layer_button");
@@ -111,6 +123,24 @@ div1.setAttribute('class',"add_tag_layer");
 //make item dragable
 $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
 //
+   
+    
+       
+//tag suto-compeletr      
+   $( ".add_tag_newtag" ).autocomplete({
+    source: function (request, response) {
+        var matches = $.map(availableTags, function (acItem) {
+            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
+                return acItem;
+            }
+        });
+        response(matches);
+    }
+});
+    
+ //make it faster      
+   $( ".add_tag_newtag" ).autocomplete({delay: 100});
+         
     
 }
       
@@ -150,15 +180,18 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
      var right= $( "#ax_r" ).val();
       
    //to be replaced by a condition about axis   
-      if((top == "") || (bott == "") ||(left == "")||(right == "")){
+      if((top == "") || (bott == "") ||(left == "")||(right =="")){
+                                                      
        axis_shake();
-                      
+           $("#pp").text("Please set the axis first! ");  
+          $("#p").css("background","#F5A9A9");                                            
+          $("#pp").effect( "bounce",{times:6}, 300 );               
      
-    $(ui.draggable).animate({ top: y1, left:x1},400);
+  /*  $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
        $(ui.draggable).effect( "bounce", 
           {times:3}, 300 );
-      
+      */
       }
   }
         
@@ -318,11 +351,15 @@ a.appendChild(img);
  <div id="drag_window">
 
   <div id="leftinfo">
+  
+  <img src="http://profl.eu/web/wp-content/uploads/2013/12/esensorics-lilla-300x69.png" alt="Esensorics logo" style="width:115px;height:25px">
+  
     <div id="h1">
 <h1>Candy Test</h1>
 </div>
+
   <div id="p">
-<p>This could be the place for help text. The tasting is done simultaneously with placing the samples.</p>
+<p id="pp"> First name the axis and then Place the items accordingly.</p>
 </div>
 <div id="items">
 	
@@ -333,8 +370,6 @@ a.appendChild(img);
      <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
     
   </div> 
-  
-  
   
       
 
@@ -349,8 +384,7 @@ a.appendChild(img);
   
 	<div id="axisname_top">
 <input class="axis_name" id="ax_t" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
-</div> 
- 
+</div>  
 
   <div id="axisname_bottom">
 <input class="axis_name" id="ax_b" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
@@ -364,16 +398,6 @@ a.appendChild(img);
 	<div id="axisname_right" >
     <input class="axis_name" id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
   </div>
-  
-  </div> 
-  <button type="button" id="popupaxis" title="Please name the top and bottom axis"> </button>
-  </div> 
-  
-  </div> 
-  <button type="button" id="popupaxis2" title="Please name the left and right axis"> </button>
-  </div> 
-  
-  
 </div>
 </div>
 </div>

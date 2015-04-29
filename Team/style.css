@@ -118,7 +118,7 @@ vertical-align: middle;
 }
 
 #submitbutton {
-    margin-top: 33px;	
+    margin-top: 300px;	
  border-radius: 10px;
     width: 200px;
     height: 50px;
@@ -126,23 +126,6 @@ vertical-align: middle;
     background: #A9F5D0;
 }
 
-#popupaxis {
-    margin-top: 23px;	
-    	margin-left: -405px;
-    width: 1px;
-    height: 1px;
-	vertical-align: left;
-    background: #A9F5D0;
-}
-
-#popupaxis2 {
-    margin-top: 362px;	
-    	margin-left: -700px;
-    width: 1px;
-    height: 1px;
-	vertical-align: left;
-    background: #A9F5D0;
-}
 
 
 #axis_horisontal {
@@ -202,10 +185,25 @@ vertical-align: middle;
 	height: 0px;
 	position: relative;
 	top: -712px;
-	left: 575px;
+	left: 576px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
 
+#p{
+height: 100px;
+    width: 200px;
+    border-radius: 10px;
+background: #A9F5D0;
+}
+#pp{
+padding: 10px;
+}
+
+
+.ui-autocomplete.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 10px;
+}
 
