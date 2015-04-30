@@ -199,7 +199,7 @@ $( "#drag_window" ).droppable({
 });
 //*********************      
       $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
-   $(this).css({'background-color' : '#BEF781'});
+   $(this).css({'background-color' : 'white'});
 });
 //************************    
         $( "#canvas" ).droppable({
@@ -214,7 +214,7 @@ $( "#drag_window" ).droppable({
                                                       
        axis_shake();
            $("#pp").text("Please set the axis first! ");  
-          $("#p").css("background","#F5A9A9");                                            
+           $("#p").css("background","white");                                            
           $("#pp").effect( "bounce",{ times:6}, 300 );               
      
   /*  $(ui.draggable).animate({ top: y1, left:x1},400);
@@ -327,27 +327,27 @@ return items_out;
      var right= $( "#ax_r" ).val();
      
   if(bott == ""){
-          $("#ax_b").css({'background-color' : '#FFBF00'});
+          $("#ax_b").css({'background-color' : '#FFFD14'});
           $("#ax_b").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_b").focus();
           }   
           if(left == ""){
-          $("#ax_l").css({'background-color' : '#FFBF00'});
+          $("#ax_l").css({'background-color' : '#FFFD14'});
           $("#ax_l").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_l").focus();
 
           }   
           if(right == ""){
-          $("#ax_r").css({'background-color' : '#FFBF00'});
+          $("#ax_r").css({'background-color' : '#FFFD14'});
           $("#ax_r").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_r").focus();
 
           } 
           if(top == ""){
-          $("#ax_t").css({'background-color' : '#FFBF00'});
+          $("#ax_t").css({'background-color' : '#FFFD14'});
           $("#ax_t").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_t").focus();
