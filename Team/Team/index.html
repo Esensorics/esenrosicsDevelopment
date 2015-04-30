@@ -122,6 +122,7 @@ div1.setAttribute('class',"add_tag_layer");
     in1.id="add_tag_newtag"+ cloneCount;
     in1.setAttribute('class',"add_tag_newtag");
     in1.type="text";
+    in1.setAttribute('onkeydown',"add_tag_enter(event,this);");
     in1.value="";
     div1.appendChild(in1);
     //input2
@@ -362,8 +363,14 @@ img.width =10 ;
 a.appendChild(img);
 (document.getElementById('add_tag_link'+num)).appendChild(a);
 }
-          
-          
+//   *****************************************       
+ function add_tag_enter(event, element){
+    var id=element.id;  
+var num = parseInt( id.match(/\d+/g), 10 ); 
+    if (event.keyCode == 13) document.getElementById('add_tag_newtag_but'+num).click();
+        
+        
+        }        
   </script>
 </head>
 <body>
