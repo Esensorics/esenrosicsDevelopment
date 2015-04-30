@@ -6,11 +6,11 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    
-
-    <script src="jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js"></script>
-    
-  <link rel="stylesheet" href="style.css">
+  <script src="jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js"></script>
+  
+ <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="style-kmm.css"> 
   <script>
 var item_instances = 6;
   $(function() {   
@@ -82,35 +82,28 @@ for(cloneCount = 1 ; cloneCount <= N; cloneCount++){
  //creat draggable item
  var new_item = document.createElement('div');
 new_item.setAttribute('id','draggable_item'+ cloneCount);
-  new_item.setAttribute('class',"draggable_content");
-   
+new_item.setAttribute('class',"draggable_content");
+
+    // class juures, et saaks animeerida css3ga
+var sampleBubbles = $('.draggable_content');
+sampleBubbles.addClass('animated');
     
-  //creat name p and its text
+//creat name p and its text
  var p1 = document.createElement("p");
+ var node1 = document.createTextNode(cloneCount);  
+ var span1 = document.createElement("span");
     
-// var node1 = document.createTextNode(cloneCount);  
- var node1 = document.createElement("b");
-    node1.style.fontSize = "15px";
-  node1.innerHTML = cloneCount;
+ span1.appendChild(node1);  
+ span1.setAttribute('class',"number");
+ p1.appendChild(span1);
     
- p1.appendChild(node1);    
  new_item.appendChild(p1);   
  //  the add tag link(add_tag_link)
 var p2 = document.createElement("p");
 p2.id="add_tag_link"+ cloneCount;
-var a1=document.createElement('a');
-    a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
-//a1.href="#";
-//var abc = "#add_tag_layer"+cloneCount; 
-//$(a1).click(function(){$(abc.toggle();});
-    
-//$("#add_tag_layer"+cloneCount).toggle();$("#add_tag_newtag"+cloneCount).focus();
-    //('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();
- 
- //javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();
-  
+var a1=document.createElement('a');  a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
 var node2 = document.createTextNode("Tag");  
- a1.appendChild(node2);    
+a1.appendChild(node2);    
 p2.appendChild(a1);
 new_item.appendChild(p2);    
  //add_tag_layer div 
@@ -188,7 +181,7 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
 });
 //*********************      
       $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
-   $(this).css({'background-color' : '#BEF781'});
+   $(this).css({'background-color' : 'white'});
 });
 //************************    
         $( "#canvas" ).droppable({
@@ -221,6 +214,16 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
  //******************
  //the function that is activated after "submit botton is pressed"   
       function submit_function( ){
+          
+          
+          // define elements
+    var $dialog = $('#dialog');
+    var $dialogButton = $('.dialog-button');
+
+    $dialogButton.on('click', function() {
+      $dialog.fadeOut(600);
+    })
+    
 //check if axis have names          
           var top= $( "#ax_t" ).val();
           var bott= $( "#ax_b" ).val();
@@ -266,8 +269,8 @@ alert_text = "Please locate all the items on the canvas before submition!";
 }
      
       }
-          
-       alert(alert_text);
+        $dialog.find('.dialog-text').text(alert_text);
+        $dialog.fadeIn(300);
 }
           
 //************************   
@@ -301,27 +304,27 @@ return items_out;
      var right= $( "#ax_r" ).val();
      
   if(bott == ""){
-          $("#ax_b").css({'background-color' : '#FFBF00'});
+          $("#ax_b").css({'background-color' : '#FFFD14'});
           $("#ax_b").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_b").focus();
           }   
           if(left == ""){
-          $("#ax_l").css({'background-color' : '#FFBF00'});
+          $("#ax_l").css({'background-color' : '#FFFD14'});
           $("#ax_l").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_l").focus();
 
           }   
           if(right == ""){
-          $("#ax_r").css({'background-color' : '#FFBF00'});
+          $("#ax_r").css({'background-color' : '#FFFD14'});
           $("#ax_r").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_r").focus();
 
           } 
           if(top == ""){
-          $("#ax_t").css({'background-color' : '#FFBF00'});
+          $("#ax_t").css({'background-color' : '#FFFD14'});
           $("#ax_t").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_t").focus();
