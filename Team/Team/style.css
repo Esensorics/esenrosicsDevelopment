@@ -9,10 +9,17 @@ body {
 	margin: 10px;
 }
 
-#p {
-	font-size: 14px;
-	margin: 10px;
+#p{
+height: 100px;
+    width: 200px;
+    border-radius: 10px;
+background: #A9F5D0;
 }
+
+#pp{
+padding: 10px;
+}
+
 
 #everything {
 	width:100%;
@@ -195,15 +202,7 @@ vertical-align: middle;
 	z-index: 50;
 }
 
-#p{
-height: 100px;
-    width: 200px;
-    border-radius: 10px;
-background: #A9F5D0;
-}
-#pp{
-padding: 10px;
-}
+
 
 
 .ui-autocomplete.ui-widget {

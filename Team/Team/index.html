@@ -196,7 +196,7 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
                                                       
        axis_shake();
            $("#pp").text("Please set the axis first! ");  
-          $("#p").css("background","#F5A9A9");                                            
+          $("#pp").css("color","#6199E9");                                            
           $("#pp").effect( "bounce",{times:6}, 300 );               
      
   /*  $(ui.draggable).animate({ top: y1, left:x1},400);
@@ -428,7 +428,11 @@ var num = parseInt( id.match(/\d+/g), 10 );
 </div>
 </div>
 
- 
+ <div id='dialog'>
+  <p class='dialog-text'>You need to name the axis and place the items in the canvas, before you be able to submit!</p>
+  <div class='dialog-button'>OK</div>
+</div>
+    
 </body>
 </html>
 
