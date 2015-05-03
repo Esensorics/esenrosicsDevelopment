@@ -192,10 +192,11 @@
 		$('#btn-login').click(function(){
 			//run the character number check
 			if(($('#login-username').val().length<min_chars) || ($('#login-password').val().length<min_chars)){
-				//if it's bellow the minimum show characters_error text '
+                
+               // document.getElementById("login-username").placeholder ="Please enter your username or email here";
 				alert("username or password is missing!");
 			}else{
-				check_existance();
+				check_userpass($('#login-username').val(),($('#login-password').val()));
 			}
             
 		});
@@ -221,14 +222,9 @@
 				alert("username or password is missing!");
 			}else{
                 if($('#register-email').val().length>min_chars){
-                    
                 				make_username();
-
-                
                 }
-                
 			}
-            
 		});
 
 //  });
@@ -266,6 +262,22 @@ function make_username(){
 		});
 
 }
+  
+             
+             //built in user pass check             
+  function check_userpass(user, pass){
+  if(user=="username" && pass=="password"){
+  alert("ok");
+  
+  }else{
+      
+      
+  alert("wrong username or password");
+  }
+  
+  
+  
+  } 
 
       </script>
     
