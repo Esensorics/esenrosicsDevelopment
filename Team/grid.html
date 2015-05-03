@@ -11,6 +11,8 @@
  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="animate.css">
   <link rel="stylesheet" href="style-kmm.css"> 
+
+
   <script>
 var item_instances = 6;
   $(function() {   
@@ -381,6 +383,12 @@ var num = parseInt( id.match(/\d+/g), 10 );
  <div id="drag_window">
 
   <div id="leftinfo">
+      <a href="surveys.html"><img src="img/esensorics.png" style="float:left;height:40px;" /></a>
+      <button type="button" id="menubutton" onclick="window.location='surveys.html';">Back to my surveys</button> 
+      <button type="button" id="logoutbutton" onclick="window.location='index.html';">Log out</button> 
+    </ul>
+
+
     <div id="h1">
 <h1>Candy Test</h1>
 </div>
@@ -395,8 +403,7 @@ var num = parseInt( id.match(/\d+/g), 10 );
       
 
      <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
-    
-  </div> 
+</div> 
   
       
 
