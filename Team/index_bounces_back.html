@@ -8,7 +8,7 @@
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="style.css">
   <script>
-var item_instances = 4;
+var item_instances = 6;
   $(function() {   
    
  //vocabulary for autocompelete
@@ -56,18 +56,55 @@ $(".add_tag_layer").click(function(e) {
       
 //here I make N number of instances of draggable item
 var N = item_instances;
- //make first item dragable
-$("#draggable_item1").draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
-      
-for(cloneCount = 2 ; cloneCount <= N; cloneCount++){
-//previous item
-var prev_id= 'draggable_item'+ (cloneCount-1);
-//creat new item and edit id
- var new_item = $("#draggable_item1").clone().attr('id', 'draggable_item'+ cloneCount);
-//add new item after prevois one  
- new_item.insertAfter(document.getElementById(prev_id));
+
+for(cloneCount = 1 ; cloneCount <= N; cloneCount++){   
+    
+ //creat draggable item
+ var new_item = document.createElement('div');
+new_item.setAttribute('id','draggable_item'+ cloneCount);
+  new_item.setAttribute('class',"draggable_content");
+   
+    
+  //creat name p and its text
+ var p1 = document.createElement("p");
+ var node1 = document.createTextNode("Sample "+cloneCount);  
+ p1.appendChild(node1);    
+ new_item.appendChild(p1);   
+ //  the add tag link(add_tag_link)
+var p2 = document.createElement("p");
+p2.id="add_tag_link"+ cloneCount;
+var a1=document.createElement('a');
+a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
+var node2 = document.createTextNode("Tag");  
+ a1.appendChild(node2);    
+p2.appendChild(a1);
+new_item.appendChild(p2);    
+ //add_tag_layer div 
+var div1 = document.createElement("div");
+div1.id="add_tag_layer"+ cloneCount;    
+div1.setAttribute('class',"add_tag_layer");
+    //input1
+    var in1 = document.createElement("input");
+    in1.id="add_tag_newtag"+ cloneCount;
+    in1.type="text";
+    in1.value="";
+    div1.appendChild(in1);
+    //input2
+    var in2 = document.createElement("input");
+    in2.id="add_tag_newtag"+ cloneCount;
+    in2.type="button";
+    in2.name="tag";
+    in2.setAttribute('class',"add_tag_layer_button");
+    in2.value="Add";
+    in2.setAttribute('onclick',"add_tag_button(this);");
+    div1.appendChild(in2);
+ new_item.appendChild(div1);
+  
+//add new item to items
+ ( document.getElementById("items")).appendChild(new_item);    
+
 //make item dragable
-new_item.draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
+$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
 //
     
 }
@@ -127,13 +164,29 @@ new_item.draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inn
  //******************
  //the function that is activated after "submit botton is pressed"   
       function submit_function( ){
-        var alert_text="submitted sucsessfully!";
 //check if axis have names          
           var top= $( "#ax_t" ).val();
           var bott= $( "#ax_b" ).val();
           var left = $( "#ax_l" ).val();
           var right= $( "#ax_r" ).val();
         
+     var alert_text="Submitted sucsessfully! Positions of elements to be saved in database: \n" ; 
+          
+    
+    
+    
+       var item_s = (document.getElementById("items")).childNodes;
+          for( i = 1 , j = item_s.length; i < j ; i++ ){
+   // if( item_s[ i ].getAttribute("class") == "draggable_content" ){
+        alert_text = alert_text+ "Sample"+ i+": x = " + getPosition(item_s[ i ]).x + ", y = " + getPosition(item_s[ i ]).y + "\n";
+   // }
+    }
+          
+    
+    
+             
+              
+          
       if((top == "") || (bott == "") ||(left == "")||(right == "")){
           axis_shake();
       alert_text="You need to name the axis and place the items in the canvas, before you be able to submit!";
@@ -171,6 +224,7 @@ alert_text = "Please locate all the items on the canvas before submition!";
 for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
     var current_id= 'draggable_item'+ cloneCount;
     var current_item = document.getElementById(current_id);
+
     //get items position
  position = getPosition(current_item);
  x=position.x;
@@ -266,14 +320,7 @@ a.appendChild(img);
 <p>This could be the place for help text. The tasting is done simultaneously with placing the samples.</p>
 </div>
 <div id="items">
-	<div id="draggable_item1" class="draggable_content">
-	  <p id="title1">Sample 1</p>
-	  <p id="add_tag_link1"><a href="javascript:$('#add_tag_layer1').toggle();$('#add_tag_newtag1').focus();">Tag</a></p>
-	  <div id="add_tag_layer1" class="add_tag_layer">
-	  	<input id="add_tag_newtag1" type="text" value="" />
-	  	<input id="add_tag_button1" type="button" name="tag" class="add_tag_layer_button" value="Add" onclick="add_tag_button(this);" />
-	  </div>
-	</div>
+	
 
 </div> 
       

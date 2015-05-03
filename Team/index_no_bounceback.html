@@ -6,21 +6,29 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js"></script>
-  
- <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="animate.css">
-  <link rel="stylesheet" href="style-kmm.css"> 
+  <link rel="stylesheet" href="style.css">
   <script>
 var item_instances = 6;
-  $(function() {   
+  $(function() { 
    
-  //returning the help window to green when started typing     
-    $( ".axis_name" ).keypress(function(){
-       // $("#p").css("background","#A9F5D0"); 
+      
+ //returning the help window to green when started typing     
+    $("#ax_t").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    });  
+      $("#ax_b").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
        
     }); 
-     
+      $("#ax_l").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    }); 
+      $("#ax_r").keypress(function(){
+        $("#p").css("background","#A9F5D0"); 
+       
+    }); 
  //vocabulary for autocompelete
       var availableTags = [
       "Sweet",
@@ -48,19 +56,9 @@ var item_instances = 6;
     ];
 //adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
-        
-    source: function (request, response) {
-        var matches = $.map(availableTags, function (acItem) {
-            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
-                return acItem;
-            }
-        });
-        response(matches);
-    }
-});
-      
-//make it faster      
-   $( ".axis_name" ).autocomplete({delay: 100});
+      source: availableTags
+    });      
+
       
       
  // this pice hides the tag window when we click somewhere else 
@@ -82,28 +80,21 @@ for(cloneCount = 1 ; cloneCount <= N; cloneCount++){
  //creat draggable item
  var new_item = document.createElement('div');
 new_item.setAttribute('id','draggable_item'+ cloneCount);
-new_item.setAttribute('class',"draggable_content");
-
-    // class juures, et saaks animeerida css3ga
-var sampleBubbles = $('.draggable_content');
-sampleBubbles.addClass('animated');
+  new_item.setAttribute('class',"draggable_content");
+   
     
-//creat name p and its text
+  //creat name p and its text
  var p1 = document.createElement("p");
- var node1 = document.createTextNode(cloneCount);  
- var span1 = document.createElement("span");
-    
- span1.appendChild(node1);  
- span1.setAttribute('class',"number");
- p1.appendChild(span1);
-    
+ var node1 = document.createTextNode("Sample "+cloneCount);  
+ p1.appendChild(node1);    
  new_item.appendChild(p1);   
  //  the add tag link(add_tag_link)
 var p2 = document.createElement("p");
 p2.id="add_tag_link"+ cloneCount;
-var a1=document.createElement('a');  a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
+var a1=document.createElement('a');
+a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
 var node2 = document.createTextNode("Tag");  
-a1.appendChild(node2);    
+ a1.appendChild(node2);    
 p2.appendChild(a1);
 new_item.appendChild(p2);    
  //add_tag_layer div 
@@ -113,14 +104,12 @@ div1.setAttribute('class',"add_tag_layer");
     //input1
     var in1 = document.createElement("input");
     in1.id="add_tag_newtag"+ cloneCount;
-    in1.setAttribute('class',"add_tag_newtag");
     in1.type="text";
-    in1.setAttribute('onkeydown',"add_tag_enter(event,this);");
     in1.value="";
     div1.appendChild(in1);
     //input2
     var in2 = document.createElement("input");
-    in2.id="add_tag_newtag_but"+ cloneCount;
+    in2.id="add_tag_newtag"+ cloneCount;
     in2.type="button";
     in2.name="tag";
     in2.setAttribute('class',"add_tag_layer_button");
@@ -135,24 +124,6 @@ div1.setAttribute('class',"add_tag_layer");
 //make item dragable
 $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
 //
-   
-    
-       
-//tag suto-compeletr      
-   $( ".add_tag_newtag" ).autocomplete({
-    source: function (request, response) {
-        var matches = $.map(availableTags, function (acItem) {
-            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
-                return acItem;
-            }
-        });
-        response(matches);
-    }
-});
-    
- //make it faster      
-   $( ".add_tag_newtag" ).autocomplete({delay: 100});
-         
     
 }
       
@@ -181,7 +152,7 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
 });
 //*********************      
       $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
-   $(this).css({'background-color' : 'white'});
+   $(this).css({'background-color' : '#BEF781'});
 });
 //************************    
         $( "#canvas" ).droppable({
@@ -196,7 +167,7 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
                                                       
        axis_shake();
            $("#pp").text("Please set the axis first! ");  
-        //  $("#pp").css("color","#6199E9");                                            
+          $("#p").css("background","#F5A9A9");                                            
           $("#pp").effect( "bounce",{times:6}, 300 );               
      
   /*  $(ui.draggable).animate({ top: y1, left:x1},400);
@@ -214,16 +185,6 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
  //******************
  //the function that is activated after "submit botton is pressed"   
       function submit_function( ){
-          
-          
-          // define elements
-    var $dialog = $('#dialog');
-    var $dialogButton = $('.dialog-button');
-
-    $dialogButton.on('click', function() {
-      $dialog.fadeOut(600);
-    })
-    
 //check if axis have names          
           var top= $( "#ax_t" ).val();
           var bott= $( "#ax_b" ).val();
@@ -269,8 +230,8 @@ alert_text = "Please locate all the items on the canvas before submition!";
 }
      
       }
-        $dialog.find('.dialog-text').text(alert_text);
-        $dialog.fadeIn(300);
+          
+       alert(alert_text);
 }
           
 //************************   
@@ -304,27 +265,27 @@ return items_out;
      var right= $( "#ax_r" ).val();
      
   if(bott == ""){
-          $("#ax_b").css({'background-color' : '#FFFD14'});
+          $("#ax_b").css({'background-color' : '#FFBF00'});
           $("#ax_b").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_b").focus();
           }   
           if(left == ""){
-          $("#ax_l").css({'background-color' : '#FFFD14'});
+          $("#ax_l").css({'background-color' : '#FFBF00'});
           $("#ax_l").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_l").focus();
 
           }   
           if(right == ""){
-          $("#ax_r").css({'background-color' : '#FFFD14'});
+          $("#ax_r").css({'background-color' : '#FFBF00'});
           $("#ax_r").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_r").focus();
 
           } 
           if(top == ""){
-          $("#ax_t").css({'background-color' : '#FFFD14'});
+          $("#ax_t").css({'background-color' : '#FFBF00'});
           $("#ax_t").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_t").focus();
@@ -352,10 +313,8 @@ function add_tag_button(element){
 var id=element.id;  
 var num = parseInt( id.match(/\d+/g), 10 );
     
-var tag = $('#add_tag_newtag'+num).val();   
-var tag_count = tag.split(",").length ;
-    
-$('#add_tag_link'+num).text(tag_count+"tag");
+var tag = $('#add_tag_newtag'+num).val();    
+$('#add_tag_link'+num).text(tag);
     
 var a=document.createElement('a');
 a.href="javascript:$('#add_tag_layer"+num+"').toggle();$('#add_tag_newtag"+num+"').focus();";   
@@ -366,14 +325,8 @@ img.width =10 ;
 a.appendChild(img);
 (document.getElementById('add_tag_link'+num)).appendChild(a);
 }
-//   *****************************************       
- function add_tag_enter(event, element){
-    var id=element.id;  
-var num = parseInt( id.match(/\d+/g), 10 ); 
-    if (event.keyCode == 13) document.getElementById('add_tag_newtag_but'+num).click();
-        
-        
-        }        
+          
+          
   </script>
 </head>
 <body>
@@ -385,8 +338,7 @@ var num = parseInt( id.match(/\d+/g), 10 );
 <h1>Candy Test</h1>
 </div>
   <div id="p">
-      <p id="p1">Hint: </p>    
-<p id="pp"> 1. First name all 4 axis. <br> 2. then Place the items in the canvas accordingly. <br> 3. You have the option to tag each item. <br> 4. When you are done press "submit button." </p>
+<p id="pp"> First name the axis and then Place the items accordingly..</p>
 </div>
 <div id="items">
 	
@@ -429,11 +381,7 @@ var num = parseInt( id.match(/\d+/g), 10 );
 </div>
 </div>
 
- <div id='dialog'>
-  <p class='dialog-text'>You need to name the axis and place the items in the canvas, before you be able to submit!</p>
-  <div class='dialog-button'>OK</div>
-</div>
-    
+ 
 </body>
 </html>
 
