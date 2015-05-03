@@ -19,157 +19,50 @@
 
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 
-    <!--  <style> .row {padding-bottom: 20px}
-            hr {border-color:black}
-      </style>  --->
   </head>
-    
-<!------------------------------------------------------------------------>
      
   <body background="Food-Infographic1.jpg">
       
 
+
         <div class="container-fluid"  style="height: auto;">
             
-        <div id="loginbox" style="margin-top:150px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">     
-            
+	        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6">     
+	            
 
-            <div class="panel panel-info" style="opacity:0.8" >
-                    <div class="panel-heading" style="background-color:#B18904;">
-                        <div class="panel-title" style="color:black">Sign In</div>
-                        <div style=" float:right; font-size: 80%; position: relative; top:-10px"><a href="#" style="color:#8A0808">Forgot password?</a></div>
-                    </div>     
-
-                    <div style="padding-top:30px;background-color:#B18904;" class="panel-body" >
-
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                            
-                        <form id="loginform" class="form-horizontal" role="form">
-                                    
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
-                                    </div>
-                                
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                                    </div>
-                                    
-
-                                
-                            <div class="input-group" style="color:black;">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input id="login-remember"  type="checkbox" name="remember" value="1"> Remember me
-                                        </label>
-                                      </div>
-                                    </div>
-
-
-                                <div style="margin-top:10px" class="form-group">
-                                    <!-- Button -->
-
-                                    <div class="col-sm-12 controls">
-                                      <a id="btn-login" href="#" class="btn btn-success">Login  </a>
-                                      <a id="btn-glogin" href="#" class="btn btn-primary">Login with Google</a>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group" style="color:black;">
-                                    <div class="col-md-12 control">
-                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:90%" >
-                                            Don't have an account! 
-                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()" style="color:#8A0808">
-                                            Sign Up Here
-                                        </a>
-                                        </div>
-                                    </div>
-                                </div>    
-                            </form>     
-
-
-
-                        </div>                     
-                    </div>  
-        </div>
-        <div id="signupbox" style="display:none; margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                    <div class="panel panel-info"  style="opacity:0.8">
-                        <div class="panel-heading" style="background-color:#B18904;">
-                            <div class="panel-title" style="color:black">Sign Up</div>
-                            <div style="float:right; font-size: 85%; position: relative; top:-10px ;"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()" style="color:#8A0808">Sign In</a></div>
-                        </div>  
-                        <div class="panel-body" style="background-color:#B18904;" >
-                            <form id="signupform" class="form-horizontal" role="form">
-                                
-                                <div id="signupalert" style="display:none" class="alert alert-danger">
-                                    <p>Error:</p>
-                                    <span></span>
-                                </div>
-                                    
-                                
-                                  
-                                <div class="form-group">
-                                    <label for="email" class="col-md-3 control-label">Email</label>
-                                    <div class="col-md-9">
-                                        <input id="register-email" type="text" class="form-control" name="email" placeholder="Email Address">
-                                    </div>
-                                </div>
-                                    
-                                <div class="form-group">
-                                    <label for="username" class="col-md-3 control-label">User Name</label>
-                                    <div class="col-md-9">
-                                        <input id="register-username" type="text" class="form-control" name="username" placeholder="User Name">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="password" class="col-md-3 control-label">Password</label>
-                                    <div class="col-md-9">
-                                        <input id="register-password" type="password" class="form-control" name="passwd" placeholder="Password">
-                                    </div>
-                                </div>
-                                    
-                            
-
-                                <div class="form-group">
-                                    <!-- Button -->                                        
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
-                                        <span style="margin-left:8px;">or</span>  
-                                    </div>
-                                </div>
-                                
-                                <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
-                                    
-                                    <div class="col-md-offset-3 col-md-9">
-
-                                                       
-                                        <button id="btn-fbsignup" type="button" class="btn btn-primary" >   Sign Up with Google</button>
-                                        
-                                        
- </p>                                    
-                                    
-                                        
-                                    </div>                                           
-                                        
-                                </div>
-                                
-                                
-                                
-                            </form>
-                         </div>
-                    </div>
-
-               
-               
-                
-         </div> 
-     
-
-    </div><!--/.container-->
+				<div class="container" style="background:#FFF;width:600px;margin-left:10px;">
+					<h2>Surveys</h2>
+					<p>You are now logged in to the food tasting platform. Here are they surveys you can currently take:</p>            
+					<table class="table table-striped">
+					<thead>
+					  <tr>
+					    <th>Survey name</th>
+					    <th style="width:120px;">Deadline</th>
+					    <th style="width:120px;">Start survey</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+					    <td><a href="grid.html">Beer test</a></td>
+					    <td>30.05.2015</td>
+					    <td><a href="grid.html"><button type="button" class="btn-primary">Start test now</button></a></td>
+					  </tr>
+					  <tr>
+					    <td><a href="grid.html">Candy survey</a></td>
+					    <td>12.06.2015</td>
+					    <td><a href="grid.html"><button type="button" class="btn-primary">Start test now</button></a></td>
+					  </tr>
+					  <tr>
+					    <td><a href="grid.html">Chewing gum test</a></td>
+					    <td>15.06.2015</td>
+					    <td><a href="grid.html"><button type="button" class="btn-primary">Start test now</button></a></td>
+					  </tr>
+					</tbody>
+					</table>
+				</div>
+	     
+			</div>
+   		</div><!--/.container-->
 
       
       
