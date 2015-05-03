@@ -18,7 +18,7 @@ body {
 }
 
 #p {
-	font-size: 14px;
+	font-size: 12px;
 	margin: 10px 0;
     background: #FFFF00;
 }
@@ -187,28 +187,57 @@ vertical-align: middle;
 }
 
 #submitbutton {
-	display: block;
-
-/*	position: absolute;
-	bottom: 0;*/
-
-	float: left;
-
-    margin-top: 36px;	
-
-    width: 120px;
-
-    height: 36px;
-    line-height: 36px;
-
-    background: #6199E9;
-
-    text-align: center;
-
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 200px;
+    height: 40px;
+	vertical-align: left;
+    background: #337ab7;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #FFF;
     cursor: pointer;
 }
 
 	#submitbutton:hover {
+		background-color: gray;
+	}
+
+#menubutton  {
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 200px;
+    height: 40px;
+	vertical-align: left;
+    background: #337ab7;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+	#menubutton:hover {
+		background-color: gray;
+	}
+
+#logoutbutton  {
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 200px;
+    height: 40px;
+	vertical-align: left;
+    background: #CCC;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #000;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+	#logoutbutton:hover {
 		background-color: gray;
 	}
 
@@ -335,26 +364,5 @@ background: #A9F5D0;
 		.dialog-button:active {
 			background-color: rgb(60, 60, 60);
 		}
-
-#menubutton  {
-    margin-top: 10px;	
-    border: 0px;
- 	border-radius: 10px;
-    width: 200px;
-    height: 30px;
-	vertical-align: left;
-    background: #A9F5D0;
-}
-
-#logoutbutton  {
-    margin-top: 10px;	
-    border: 0px;
- 	border-radius: 10px;
-    width: 200px;
-    height: 30px;
-	vertical-align: left;
-    background: #A9F5D0;
-    margin-bottom: 20px;
-}
 
 
