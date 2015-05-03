@@ -196,7 +196,7 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
                                                       
        axis_shake();
            $("#pp").text("Please set the axis first! ");  
-          $("#pp").css("color","#6199E9");                                            
+        //  $("#pp").css("color","#6199E9");                                            
           $("#pp").effect( "bounce",{times:6}, 300 );               
      
   /*  $(ui.draggable).animate({ top: y1, left:x1},400);
@@ -385,7 +385,8 @@ var num = parseInt( id.match(/\d+/g), 10 );
 <h1>Candy Test</h1>
 </div>
   <div id="p">
-<p id="pp"> First name the axis and then Place the items accordingly..</p>
+      <p id="p1">Hint: </p>    
+<p id="pp"> 1. First name the axis <br> 2. then Place the items accordingly..</p>
 </div>
 <div id="items">
 	

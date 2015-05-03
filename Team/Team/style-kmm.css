@@ -20,11 +20,18 @@ body {
 #p {
 	font-size: 14px;
 	margin: 10px 0;
+    background: #FFFF00;
 }
 
 #pp {
 	background-color: transparent;
-	height: 48px;
+	height: 60px;
+    padding: 10px;
+}
+#p1 {
+
+padding-top: 10px;
+padding-left: 10px;    
 }
 
 #everything {
@@ -276,9 +283,7 @@ height: 100px;
     border-radius: 10px;
 background: #A9F5D0;
 }*/
-#pp{
-padding: 10px;
-}
+
 
 
 .ui-autocomplete.ui-widget {
