@@ -7,20 +7,33 @@ html {
 }
 
 body {
-	font-family: "Arial";
+	font-family: Helvetica,Arial,sans-serif;
 	margin: 10px;
-	background: #f2f2f2;
+	background-image: url("img/Food-Infographic1.jpg");
 }
 
 #h1 {
-	font-size: 24px;
-	margin: 10px 0;
+	font-size: 14px;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	text-align: center;
+	color: #666;
+	font-family: Helvetica,Arial,sans-serif;
+}
+
+h1 {
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
+	color: #000;
+	font-family: Helvetica,Arial,sans-serif;	
 }
 
 #p {
-	font-size: 14px;
+	font-size: 12px;
 	margin: 10px 0;
-    background: #FFFF00;
+    background: #FFF0A5;
+    opacity: 0.7;
 }
 
 #pp {
@@ -28,7 +41,7 @@ body {
     padding: 10px;
 }
 #p1 {
-
+font-weight: bold;
 padding-top: 10px;
 padding-left: 10px;    
 }
@@ -40,16 +53,19 @@ padding-left: 10px;
 #leftinfo {
 	/*position: relative;*/
 	float: left;
-	
 	width: 230px;
 	height: 700px;
-
 	padding: 12px;
-
-	/*background-color: red;*/
-
+	background-color: #B18904;
 	/*min-height: 1000px;*/
 	z-index: -1;
+}
+
+#leftinfoBOX {
+	opacity: 0.9;
+	width:100%;
+	text-align: center;
+	background: #FFF;
 }
 
 #rightinfo {
@@ -82,10 +98,13 @@ padding-left: 10px;
 
 #items {
 	width:220px;
-
 	float: left;
 	z-index: 100;
 	margin-top: 20px;
+}
+
+#items a {
+	color: #8E2800;
 }
 
 #items .ui-selected { 
@@ -107,7 +126,7 @@ padding-left: 10px;
  	height: 61px; 
  	padding: 12px 5px; 
  	border-radius: 50%;
- 	background: #FF6235;
+ 	background: #FFB03B;
  	text-align: center;
  	vertical-align: top;
  	float: left;
@@ -165,7 +184,7 @@ padding-left: 10px;
 .add_tag_layer {
 
 	background: #D1D0CF;
-	opacity: 0.6;
+	opacity: 0.9;
 	width:90px;
 	padding:3px;
 	margin-left: -5px;
@@ -187,28 +206,57 @@ vertical-align: middle;
 }
 
 #submitbutton {
-	display: block;
-
-/*	position: absolute;
-	bottom: 0;*/
-
-	float: left;
-
-    margin-top: 36px;	
-
-    width: 120px;
-
-    height: 36px;
-    line-height: 36px;
-
-    background: #6199E9;
-
-    text-align: center;
-
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 200px;
+    height: 40px;
+	vertical-align: left;
+    background: #337ab7;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #FFF;
     cursor: pointer;
 }
 
 	#submitbutton:hover {
+		background-color: gray;
+	}
+
+#menubutton  {
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 150px;
+    height: 40px;
+	vertical-align: left;
+    background: #CCC;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #000;
+    cursor: pointer;
+}
+
+	#menubutton:hover {
+		background-color: gray;
+	}
+
+#logoutbutton  {
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 130px;
+    height: 30px;
+	vertical-align: left;
+    background: #CCC;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #000;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+	#logoutbutton:hover {
 		background-color: gray;
 	}
 
@@ -306,7 +354,7 @@ background: #A9F5D0;
 
 	padding: 24px;
 
-	background-color: rgb(255, 255, 0);
+	background-color: #FFF0A5;
 	color: black;
 
 	z-index: 1000;
@@ -325,14 +373,20 @@ background: #A9F5D0;
 		line-height: 36px;
 		text-align: center;
 
-		background-color: gray;
-		color: white;
 
 		cursor: pointer;
+
+	 	border-radius: 5px;
+
+	    background: #337ab7;
+	    border-color: #2e6da4;
+	    font-size:14px;
+	    color: #FFF;
 	}
 
 		.dialog-button:hover,
 		.dialog-button:active {
 			background-color: rgb(60, 60, 60);
 		}
+
 

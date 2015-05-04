@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Esensorics test prototype</title>
+  <title>Candy test - Esensorics</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -10,7 +10,9 @@
   
  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="animate.css">
-  <link rel="stylesheet" href="style-kmm.css"> 
+  <link rel="stylesheet" href="style.css"> 
+
+
   <script>
 var item_instances = 6;
   $(function() {   
@@ -264,7 +266,7 @@ if (items_out.length > 0 ){
      $(id).effect( "bounce",{times:3}, 300 );
  } 
  
-alert_text = "Please locate all the items on the canvas before submition!";
+alert_text = "Please locate all the items on the canvas before submission!";
 
 }
      
@@ -381,13 +383,19 @@ var num = parseInt( id.match(/\d+/g), 10 );
  <div id="drag_window">
 
   <div id="leftinfo">
-    <div id="h1">
-<h1>Candy Test</h1>
-</div>
-  <div id="p">
-      <p id="p1">Hint: </p>    
-<p id="pp"> 1. First name all 4 axis. <br> 2. then Place the items in the canvas accordingly. <br> 3. You have the option to tag each item. <br> 4. When you are done press "submit button." </p>
-</div>
+      
+    <div id="leftinfoBOX">
+      <a href="surveys.html"><img src="img/esensorics.png" style="float:center;height:40px;margin-top:10px;" /></a>
+      <div id="h1">You are currently taking:<h1>Candy Test</h1></div>
+      <button type="button" id="menubutton" onclick="window.location='surveys.html';">Back to my surveys</button> 
+      <button type="button" id="logoutbutton" onclick="window.location='index.html';">Log out</button> 
+    </div>
+
+
+
+
+  <div style="color:#FFF;text-align:center;width:100%;margin-top:15px;">Drag the food samples and drop them to the grid:</div>
+
 <div id="items">
 	
 
@@ -395,8 +403,13 @@ var num = parseInt( id.match(/\d+/g), 10 );
       
 
      <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
-    
-  </div> 
+
+  <div id="p">
+      <p id="p1"><strong>Hints:</strong></p>    
+      <p id="pp"> 1. First name all 4 axis. <br> 2. then Place the items in the canvas accordingly. <br> 3. You have the option to tag each item. <br> 4. When you are done press "submit button." </p>
+  </div>
+
+</div> 
   
       
 
