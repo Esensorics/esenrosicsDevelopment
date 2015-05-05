@@ -14,9 +14,23 @@
 
 
   <script>
-var item_instances = 6;
+//var item_instances = 6;
+     
+  var item_instances;  
+var test_name;      
   $(function() {   
-   
+ //extract variables from url      
+  
+      var str= window.location.href; 
+    var theleft = str.indexOf("=") + 1;
+var theright = str.lastIndexOf("&");
+ item_instances= str.substring(theleft, theright);  
+theleft = str.lastIndexOf("=");
+test_name= str.substring(theleft+1,str.length);      
+
+ //change test name
+ document.getElementById("test_name").innerHTML=test_name+" Test" ;    
+      
   //returning the help window to green when started typing     
     $( ".axis_name" ).keypress(function(){
        // $("#p").css("background","#A9F5D0"); 
@@ -41,12 +55,7 @@ var item_instances = 6;
       "gooey",
       "moist",
       "mushy",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
+      
     ];
 //adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
@@ -169,8 +178,8 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
       if(true){
     $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
-       $(ui.draggable).effect( "bounce", 
-          {times:3}, 300 );
+       //$(ui.draggable).effect( "bounce", 
+         // {times:3}, 300 );
       
       }
   }
@@ -386,7 +395,7 @@ var num = parseInt( id.match(/\d+/g), 10 );
       
     <div id="leftinfoBOX">
       <a href="surveys.html"><img src="img/esensorics.png" style="float:center;height:40px;margin-top:10px;" /></a>
-      <div id="h1">You are currently taking:<h1>Candy Test</h1></div>
+      <div id="h1">You are currently taking:<h1 id="test_name">Candy Test</h1></div>
       <button type="button" id="menubutton" onclick="window.location='surveys.html';">Back to my surveys</button> 
       <button type="button" id="logoutbutton" onclick="window.location='index.html';">Log out</button> 
     </div>
