@@ -371,9 +371,9 @@ background: #A9F5D0;
 	position: fixed;
 
 	top: 30%;
-	left: 50%;
+	left: 43%;
 
-	width: 360px;
+	width: 300px;
 	/*height: 160px;*/
 
 	margin-left: -180px;
@@ -381,18 +381,23 @@ background: #A9F5D0;
 
 	padding: 24px;
 
-	background-color: #FFF0A5;
-	color: black;
+	background-color: #94cafe;
 
 	z-index: 1000;
+	opacity: 40;
 }
 
 	.dialog-text {
-		margin-bottom: 12px;
+	color: black;
+	font-size: 15px;
+	line-height: 17px;
+	margin-bottom: 12px;
+	text-align: center;
 	}
 
 	.dialog-button {
 		position: relative;
+		margin-left: 80px;
 
 		width: 90px;
 		height: 36px;
@@ -405,7 +410,7 @@ background: #A9F5D0;
 
 	 	border-radius: 5px;
 
-	    background: #337ab7;
+	    background: #328ed2;
 	    border-color: #2e6da4;
 	    font-size:14px;
 	    color: #FFF;
@@ -413,7 +418,7 @@ background: #A9F5D0;
 
 		.dialog-button:hover,
 		.dialog-button:active {
-			background-color: rgb(60, 60, 60);
+			background-color: gray;
 		}
 
 
