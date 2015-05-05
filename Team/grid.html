@@ -250,6 +250,12 @@ $(".draggable_content").click(function() {
 
     $dialogButton.on('click', function() {
       $dialog.fadeOut(600);
+        
+        
+//if it is closing dialog
+        if(($('#dialog').find('.dialog-text').text().indexOf("Submitted sucsessfully") > -1)){    
+   window.location.assign("surveys.html"); 
+    }
     })
     
 //check if axis have names          
@@ -299,6 +305,8 @@ alert_text = "Please locate all the items on the canvas before submission!";
       }
         $dialog.find('.dialog-text').text(alert_text);
         $dialog.fadeIn(300);
+          
+          
 }
           
 //************************   
