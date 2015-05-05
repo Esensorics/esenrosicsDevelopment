@@ -40,7 +40,7 @@ float: right;
 }
 #p1 {
 font-weight: bold;
-padding-left: 10px;    
+padding-left: 10px;
 }
 
 #everything {
@@ -121,7 +121,20 @@ padding-left: 10px;
  	height: 61px; 
  	padding: 12px 5px; 
  	border-radius: 50%;
- 	background: #FFB03B;
+ 	
+background-image: -webkit-gradient(
+	linear,
+	right bottom,
+	left top,
+	color-stop(0, #E63A3A),
+	color-stop(1, #FACC41)
+);
+background-image: -o-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: -moz-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: -webkit-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: -ms-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: linear-gradient(to left top, #E63A3A 0%, #FACC41 100%);
+
  	text-align: center;
  	vertical-align: top;
  	float: left;
