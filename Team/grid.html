@@ -139,12 +139,15 @@ div1.setAttribute('class',"add_tag_layer");
     in2.setAttribute('onclick',"add_tag_button(this);");
     div1.appendChild(in2);
  new_item.appendChild(div1);
-  
 //add new item to items
- ( document.getElementById("items")).appendChild(new_item);    
+ ( document.getElementById("items")).appendChild(new_item); 
+ //apear on top when clicked
+    
+
+    
 
 //make item dragable
-$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
+$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack : ".draggable_content"});
 //
    
     
@@ -167,7 +170,21 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
     
 }
       
+  
       
+      
+      
+$(".draggable_content").click(function() {
+             // this.css('position', 'absolute');
+     //  $(this).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack: $(this)});
+ for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
+ $("#draggable_item"+cloneCount).css('z-index', 100);
+ 
+ }
+    $(this).css('z-index', 200)
+    
+    });
+     
 //////////////////////////////////////////////////////////      
  
       x1 =1;
