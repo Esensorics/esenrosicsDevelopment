@@ -136,10 +136,20 @@ div1.setAttribute('class',"add_tag_layer");
  ( document.getElementById("items")).appendChild(new_item);    
 
 //make item dragable
-$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
+$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack : ".draggable_content"});
 //
    
+      
+$(".draggable_content").click(function() {
+             // this.css('position', 'absolute');
+     //  $(this).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack: $(this)});
+ for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
+ $("#draggable_item"+cloneCount).css('z-index', 100);
+ 
+ }
+    $(this).css('z-index', 200)
     
+    });    
        
 //tag suto-compeletr      
    $( ".add_tag_newtag" ).autocomplete({
