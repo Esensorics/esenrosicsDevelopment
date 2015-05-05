@@ -9,36 +9,34 @@ html {
 body {
 	font-family: Helvetica,Arial,sans-serif;
 	margin: 10px;
-	background-image: url("img/Food-Infographic1.jpg");
+	background: #f2f2f2;
+}
+
+/
+#top-nav {
+float: right;
 }
 
 #h1 {
-	font-size: 14px;
-	margin-top: 15px;
-	margin-bottom: 0px;
-	text-align: center;
-	color: #666;
-	font-family: Helvetica,Arial,sans-serif;
-}
-
-h1 {
 	font-size: 26px;
 	font-weight: bold;
+	margin-top: 40px;
+	margin-bottom: 30px;
 	text-align: center;
 	color: #000;
-	font-family: Helvetica,Arial,sans-serif;	
+	font-family: Helvetica,Arial,sans-serif;
 }
 
 #p {
 	font-size: 12px;
 	margin: 10px 0;
-    background: #FFF0A5;
-    opacity: 0.7;
+    background: #FFF;
 }
 
 #pp {
 	background-color: transparent;
     padding: 10px;
+    line-height: 14px;
 }
 #p1 {
 font-weight: bold;
@@ -56,7 +54,6 @@ padding-left: 10px;
 	width: 230px;
 	height: 700px;
 	padding: 12px;
-	background-color: #B18904;
 	/*min-height: 1000px;*/
 	z-index: -1;
 }
@@ -65,7 +62,6 @@ padding-left: 10px;
 	opacity: 0.9;
 	width:100%;
 	text-align: center;
-	background: #FFF;
 }
 
 #rightinfo {
@@ -199,6 +195,7 @@ padding-left: 10px;
 	width:80px;
 }
 
+
 #savebutton {
 margin-top: 50px;	
 width: 100px;
@@ -212,8 +209,7 @@ vertical-align: middle;
     width: 200px;
     height: 40px;
 	vertical-align: left;
-    background: #337ab7;
-    border-color: #2e6da4;
+    background: #328ed2;
     font-size:14px;
     color: #FFF;
     cursor: pointer;

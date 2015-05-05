@@ -16,6 +16,7 @@
   <script>
 var item_instances = 6;
   $(function() {   
+
    
   //returning the help window to green when started typing     
     $( ".axis_name" ).keypress(function(){
@@ -25,7 +26,7 @@ var item_instances = 6;
      
  //vocabulary for autocompelete
       var availableTags = [
-      "Sweet",
+      "sweet",
       "savory",
       "salty",
       "bitter",
@@ -166,11 +167,11 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
 	  $( "#drag_window" ).droppable({
   drop: function(event,ui) {
     
-      if(true){
+    if(true){
     $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
-       $(ui.draggable).effect( "bounce", 
-          {times:3}, 300 );
+      /* $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 ); */
       
       }
   }
@@ -385,29 +386,30 @@ var num = parseInt( id.match(/\d+/g), 10 );
   <div id="leftinfo">
       
     <div id="leftinfoBOX">
-      <a href="surveys.html"><img src="img/esensorics.png" style="float:center;height:40px;margin-top:10px;" /></a>
-      <div id="h1">You are currently taking:<h1>Candy Test</h1></div>
-      <button type="button" id="menubutton" onclick="window.location='surveys.html';">Back to my surveys</button> 
-      <button type="button" id="logoutbutton" onclick="window.location='index.html';">Log out</button> 
+     <img src="img/esensorics.png" style="float:left;height:30px;">
+
+      <div id="top-nav" style="font-size:14px;padding-top:7px;">Log out</div>
+    
+      <div id="h1">Candy Test</h1></div>
+      
     </div>
 
 
 
 
-  <div style="color:#FFF;text-align:center;width:100%;margin-top:15px;">Drag the food samples and drop them to the grid:</div>
+  <div style="color:#000;text-align:left;width:100%;margin-top:15px;font-size:14px;line-height:17px;">Drag the samples to the canvas on the right:</div>
 
 <div id="items">
 	
 
 </div> 
       
+        <div id="p">
+      <p id="p1"><strong>Hints:</strong></p>    
+      <p id="pp"> 1. Name all four axes. <br> 2. Place the items in the canvas accordingly. <br> 3. Use the option to tag each item. <br> 4. When you are done press "Submit". </p>
+  </div>
 
      <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
-
-  <div id="p">
-      <p id="p1"><strong>Hints:</strong></p>    
-      <p id="pp"> 1. First name all 4 axis. <br> 2. then Place the items in the canvas accordingly. <br> 3. You have the option to tag each item. <br> 4. When you are done press "submit button." </p>
-  </div>
 
 </div> 
   
