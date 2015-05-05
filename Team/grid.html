@@ -307,27 +307,27 @@ return items_out;
      var right= $( "#ax_r" ).val();
      
   if(bott == ""){
-          $("#ax_b").css({'background-color' : '#FFFD14'});
+          $("#ax_b").css({'background-color' : '#badbf0'});
           $("#ax_b").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_b").focus();
           }   
           if(left == ""){
-          $("#ax_l").css({'background-color' : '#FFFD14'});
+          $("#ax_l").css({'background-color' : '#badbf0'});
           $("#ax_l").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_l").focus();
 
           }   
           if(right == ""){
-          $("#ax_r").css({'background-color' : '#FFFD14'});
+          $("#ax_r").css({'background-color' : '#badbf0'});
           $("#ax_r").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_r").focus();
 
           } 
           if(top == ""){
-          $("#ax_t").css({'background-color' : '#FFFD14'});
+          $("#ax_t").css({'background-color' : '#badbf0'});
           $("#ax_t").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_t").focus();
@@ -388,7 +388,9 @@ var num = parseInt( id.match(/\d+/g), 10 );
     <div id="leftinfoBOX">
      <a href="surveys.html"> <img src="img/esensorics.png" style="float:left;height:30px;"> </a>
 
-      <div id="top-nav" style="font-size:14px;padding-top:6px;"><a style="color:#000; text-decoration:none;"href="index.html">Log out</a></div>
+      <div id="top-nav" style="font-size:14px;padding-top:6px;">
+        <a id="logout-link"style="color:#949494; text-decoration:none;"href="index.html">Log out</a>
+      </div>
     
       <div id="h1">Candy Test</h1></div>
       

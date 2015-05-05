@@ -17,6 +17,10 @@ body {
 float: right;
 }
 
+#logout-link {
+	margin-left:20px;
+}
+
 #h1 {
 	font-size: 26px;
 	font-weight: bold;
@@ -96,6 +100,7 @@ padding-left: 10px;
 	float: left;
 	z-index: 100;
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 #items a {
@@ -146,8 +151,22 @@ background-image: linear-gradient(to left top, #E63A3A 0%, #FACC41 100%);
 	transition: background 0.1s, transform 0.1s;
 }
 
+::-webkit-input-placeholder{
+    color:#7f7f7f;
+} 
+/*Firefox*/
+::-moz-placeholder{
+    color:#7f7f7f;
+}
+:-moz-placeholder{
+    color:#7f7f7f;
+}
+/*IE*/
+:-ms-input-placeholder {  
+   color:#7f7f7f;  
+}
+
 	.ui-draggable-dragging {
-		background: #FF8C00 !important;
 
 		-ms-transform: scale(1.5, 1.5); /* IE 9 */
 		-webkit-transform: scale(1.5, 1.5); /* Safari */
