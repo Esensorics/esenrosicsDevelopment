@@ -100,7 +100,10 @@
     if($("#login-password").val() == "password" && $("#login-username").val() == "username"){
         location.href = "surveys.html";
     }else{
-    alert("Wrong username or password!" );
+    $( "#login-alert" ).html('Wrong username and password. For testing purposes use <strong>username</strong> for username and <strong>password</strong> for password.');
+    $( "#login-alert" ).show();
+
+
     }
 }; </script>
 
