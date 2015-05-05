@@ -253,8 +253,8 @@ $(".draggable_content").click(function() {
         
         
 //if it is closing dialog
-        if(($('#dialog').find('.dialog-text').text().indexOf("Submitted sucsessfully") > -1)){    
-   window.location.assign("surveys.html"); 
+        if(($('#dialog').find('.dialog-text').text().indexOf("Submitted sucsessfully") > -1)){
+   window.location.assign("surveys.html?test="+test_name); 
     }
     })
     
