@@ -28,7 +28,7 @@ float: right;
 }
 
 #p {
-	font-size: 12px;
+	font-size: 13px;
 	margin: 10px 0;
     background: #FFF;
 }
@@ -36,11 +36,10 @@ float: right;
 #pp {
 	background-color: transparent;
     padding: 10px;
-    line-height: 14px;
+    line-height: 16px;
 }
 #p1 {
 font-weight: bold;
-padding-top: 10px;
 padding-left: 10px;    
 }
 
