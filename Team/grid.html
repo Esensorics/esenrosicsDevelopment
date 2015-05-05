@@ -14,23 +14,10 @@
 
 
   <script>
-//var item_instances = 6;
-     
-  var item_instances;  
-var test_name;      
+var item_instances = 6;
   $(function() {   
- //extract variables from url      
-  
-      var str= window.location.href; 
-    var theleft = str.indexOf("=") + 1;
-var theright = str.lastIndexOf("&");
- item_instances= str.substring(theleft, theright);  
-theleft = str.lastIndexOf("=");
-test_name= str.substring(theleft+1,str.length);      
 
- //change test name
- document.getElementById("test_name").innerHTML=test_name+" Test" ;    
-      
+   
   //returning the help window to green when started typing     
     $( ".axis_name" ).keypress(function(){
        // $("#p").css("background","#A9F5D0"); 
@@ -39,7 +26,7 @@ test_name= str.substring(theleft+1,str.length);
      
  //vocabulary for autocompelete
       var availableTags = [
-      "Sweet",
+      "sweet",
       "savory",
       "salty",
       "bitter",
@@ -55,7 +42,12 @@ test_name= str.substring(theleft+1,str.length);
       "gooey",
       "moist",
       "mushy",
-      
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
     ];
 //adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
@@ -139,15 +131,12 @@ div1.setAttribute('class',"add_tag_layer");
     in2.setAttribute('onclick',"add_tag_button(this);");
     div1.appendChild(in2);
  new_item.appendChild(div1);
+  
 //add new item to items
- ( document.getElementById("items")).appendChild(new_item); 
- //apear on top when clicked
-    
-
-    
+ ( document.getElementById("items")).appendChild(new_item);    
 
 //make item dragable
-$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack : ".draggable_content"});
+$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32});
 //
    
     
@@ -170,21 +159,7 @@ $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#
     
 }
       
-  
       
-      
-      
-$(".draggable_content").click(function() {
-             // this.css('position', 'absolute');
-     //  $(this).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack: $(this)});
- for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
- $("#draggable_item"+cloneCount).css('z-index', 100);
- 
- }
-    $(this).css('z-index', 200)
-    
-    });
-     
 //////////////////////////////////////////////////////////      
  
       x1 =1;
@@ -192,11 +167,11 @@ $(".draggable_content").click(function() {
 	  $( "#drag_window" ).droppable({
   drop: function(event,ui) {
     
-      if(true){
+    if(true){
     $(ui.draggable).animate({ top: y1, left:x1},400);
      // var draggableId = ui.draggable.attr("id");
-       //$(ui.draggable).effect( "bounce", 
-         // {times:3}, 300 );
+      /* $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 ); */
       
       }
   }
@@ -250,12 +225,6 @@ $(".draggable_content").click(function() {
 
     $dialogButton.on('click', function() {
       $dialog.fadeOut(600);
-        
-        
-//if it is closing dialog
-        if(($('#dialog').find('.dialog-text').text().indexOf("Submitted sucsessfully") > -1)){    
-   window.location.assign("surveys.html"); 
-    }
     })
     
 //check if axis have names          
@@ -283,7 +252,7 @@ $(".draggable_content").click(function() {
           
       if((top == "") || (bott == "") ||(left == "")||(right == "")){
           axis_shake();
-      alert_text="You need to name the axis and place the items in the canvas, before you be able to submit!";
+      alert_text="Name the axes and place the items before submitting!";
       }else{
 
        
@@ -305,8 +274,6 @@ alert_text = "Please locate all the items on the canvas before submission!";
       }
         $dialog.find('.dialog-text').text(alert_text);
         $dialog.fadeIn(300);
-          
-          
 }
           
 //************************   
@@ -340,27 +307,27 @@ return items_out;
      var right= $( "#ax_r" ).val();
      
   if(bott == ""){
-          $("#ax_b").css({'background-color' : '#FFFD14'});
+          $("#ax_b").css({'background-color' : '#badbf0'});
           $("#ax_b").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_b").focus();
           }   
           if(left == ""){
-          $("#ax_l").css({'background-color' : '#FFFD14'});
+          $("#ax_l").css({'background-color' : '#badbf0'});
           $("#ax_l").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_l").focus();
 
           }   
           if(right == ""){
-          $("#ax_r").css({'background-color' : '#FFFD14'});
+          $("#ax_r").css({'background-color' : '#badbf0'});
           $("#ax_r").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_r").focus();
 
           } 
           if(top == ""){
-          $("#ax_t").css({'background-color' : '#FFFD14'});
+          $("#ax_t").css({'background-color' : '#badbf0'});
           $("#ax_t").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_t").focus();
@@ -419,29 +386,32 @@ var num = parseInt( id.match(/\d+/g), 10 );
   <div id="leftinfo">
       
     <div id="leftinfoBOX">
-      <a href="surveys.html"><img src="img/esensorics.png" style="float:center;height:40px;margin-top:10px;" /></a>
-      <div id="h1">You are currently taking:<h1 id="test_name">Candy Test</h1></div>
-      <button type="button" id="menubutton" onclick="window.location='surveys.html';">Back to my surveys</button> 
-      <button type="button" id="logoutbutton" onclick="window.location='index.html';">Log out</button> 
+     <a href="surveys.html"> <img src="img/esensorics.png" style="float:left;height:30px;"> </a>
+
+      <div id="top-nav" style="font-size:14px;padding-top:6px;">
+        <a id="logout-link"style="color:#949494; text-decoration:none;"href="index.html">Log out</a>
+      </div>
+    
+      <div id="h1">Candy Test</h1></div>
+      
     </div>
 
 
 
 
-  <div style="color:#FFF;text-align:center;width:100%;margin-top:15px;">Drag the food samples and drop them to the grid:</div>
+  <div style="color:#000;text-align:left;width:100%;margin-top:15px;font-size:13px;line-height:17px;">Drag the samples to the canvas on the right:</div>
 
 <div id="items">
 	
 
 </div> 
-      
+      <p id="p1" style="font-size:13px; padding-top:10;"><strong>Hints:</strong></p>   
+
+        <div id="p">
+      <p id="pp"> 1. Name all four axes. <br> 2. Place the items on the canvas accordingly. <br> 3. Use the tag option to characterise each item. <br> 4. When you are done press "Submit". </p>
+  </div>
 
      <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
-
-  <div id="p">
-      <p id="p1"><strong>Hints:</strong></p>    
-      <p id="pp"> 1. First name all 4 axis. <br> 2. then Place the items in the canvas accordingly. <br> 3. You have the option to tag each item. <br> 4. When you are done press "submit button." </p>
-  </div>
 
 </div> 
   
@@ -477,7 +447,7 @@ var num = parseInt( id.match(/\d+/g), 10 );
 </div>
 
  <div id='dialog'>
-  <p class='dialog-text'>You need to name the axis and place the items in the canvas, before you be able to submit!</p>
+  <p class='dialog-text'>Name the axes and place the items before submitting!</p>
   <div class='dialog-button'>OK</div>
 </div>
     
