@@ -14,7 +14,23 @@
 
 
   <script>
-var item_instances = 6;
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  var item_instances;  
+  var test_name;  
+
+ //extract variables from url      
+  
+  item_instances=getParameterByName('items');
+  test_name=getParameterByName('survey');    
+
+ //change test name
+
+
   $(function() {   
 
    
@@ -42,12 +58,6 @@ var item_instances = 6;
       "gooey",
       "moist",
       "mushy",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
     ];
 //adding autocomplete to axis names      
     $( ".axis_name" ).autocomplete({
@@ -235,6 +245,10 @@ $(".draggable_content").click(function() {
 
     $dialogButton.on('click', function() {
       $dialog.fadeOut(600);
+//if it is closing dialog
+        if(($('#dialog').find('.dialog-text').text().indexOf("Submitted sucsessfully") > -1)){    
+       window.location.assign("surveys.html"); 
+        }
     })
     
 //check if axis have names          
@@ -402,7 +416,7 @@ var num = parseInt( id.match(/\d+/g), 10 );
         <a id="logout-link"style="color:#949494; text-decoration:none;"href="index.html">Log out</a>
       </div>
     
-      <div id="h1">Candy Test</h1></div>
+      <div id="h1"><div id="test_name">Candy Test</div><script>  $( "#test_name" ).html(test_name + ' Test');   </script></div>
       
     </div>
 
