@@ -1,17 +1,50 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
 body {
-	font-family: "Arial";
+	font-family: Helvetica,Arial,sans-serif;
 	margin: 10px;
 	background: #f2f2f2;
 }
 
+/
+#top-nav {
+float: right;
+}
+
+#logout-link {
+	margin-left:20px;
+}
+
 #h1 {
-	font-size: 12px;
-	margin: 10px;
+	font-size: 26px;
+	font-weight: bold;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	text-align: center;
+	color: #000;
+	font-family: Helvetica,Arial,sans-serif;
 }
 
 #p {
-	font-size: 14px;
-	margin: 10px;
+	font-size: 13px;
+	margin: 10px 0;
+    background: #FFF;
+}
+
+#pp {
+	background-color: transparent;
+    padding: 10px;
+    line-height: 16px;
+}
+#p1 {
+font-weight: bold;
+padding-left: 10px;
 }
 
 #everything {
@@ -19,10 +52,19 @@ body {
 }
 
 #leftinfo {
+	/*position: relative;*/
 	float: left;
-	width:230px;
-	min-height:1000px;
+	width: 230px;
+	height: 700px;
+	padding: 12px;
+	/*min-height: 1000px;*/
 	z-index: -1;
+}
+
+#leftinfoBOX {
+	opacity: 0.9;
+	width:100%;
+	text-align: center;
 }
 
 #rightinfo {
@@ -58,6 +100,11 @@ body {
 	float: left;
 	z-index: 100;
 	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#items a {
+	color: #8E2800;
 }
 
 #items .ui-selected { 
@@ -75,17 +122,82 @@ body {
 
 .draggable_content { 
  	margin: 3px;
- 	width: 50px; 
- 	height: 50px; 
- 	padding: 5px; 
+ 	width: 61px; 
+ 	height: 61px; 
+ 	padding: 12px 5px; 
  	border-radius: 50%;
- 	background: #FFD382;
+ 	
+background-image: -webkit-gradient(
+	linear,
+	right bottom,
+	left top,
+	color-stop(0, #E63A3A),
+	color-stop(1, #FACC41)
+);
+background-image: -o-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: -moz-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: -webkit-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: -ms-linear-gradient(left top, #E63A3A 0%, #FACC41 100%);
+background-image: linear-gradient(to left top, #E63A3A 0%, #FACC41 100%);
+
  	text-align: center;
  	vertical-align: top;
  	float: left;
  	cursor: all-scroll;
  	z-index: 100;
+
+ 	/* kinnihaarates laheb mumm suuremaks ja vahetab varvi*/
+ 	-webkit-transition: background 0.1s, transform 0.1s; /* Safari */
+	transition: background 0.1s, transform 0.1s;
 }
+
+::-webkit-input-placeholder{
+    color:#7f7f7f;
+} 
+/*Firefox*/
+::-moz-placeholder{
+    color:#7f7f7f;
+}
+:-moz-placeholder{
+    color:#7f7f7f;
+}
+/*IE*/
+:-ms-input-placeholder {  
+   color:#7f7f7f;  
+}
+
+	.ui-draggable-dragging {
+
+		-ms-transform: scale(1.5, 1.5); /* IE 9 */
+		-webkit-transform: scale(1.5, 1.5); /* Safari */
+		transform: scale(1.5, 1.5);
+	}
+
+	/* muudab numbri stiili */
+	.number {
+		display: block;
+		font-size: 24px;
+
+		padding-top: 3px;
+		padding-bottom: 0px;
+	}
+
+/*.draggable_content { 
+ 	margin: 3px;
+ 	width: 50px; 
+ 	height: 50px; 
+ 	padding: 5px; 
+ 	border-radius: 50%;
+ 	background: #FFD382;
+ 	background: rgb(255, 0, 40);
+ 	text-align: center;
+ 	vertical-align: top;
+ 	float: left;
+ 	cursor: all-scroll;
+    
+ 	z-index: 100;
+}*/
+
 .draggable_content .ui-state-highlight {
 	background: #ff99aa;
 }
@@ -97,12 +209,15 @@ body {
 }
 
 .add_tag_layer {
+
 	background: #D1D0CF;
-	opacity: 0.6;
+	opacity: 0.9;
 	width:90px;
 	padding:3px;
 	margin-left: -5px;
 	display: none;
+    z-index: 200;
+
 }
 .add_tag_layer input {
 	margin:3px;
@@ -111,6 +226,7 @@ body {
 	width:80px;
 }
 
+
 #savebutton {
 margin-top: 50px;	
 width: 100px;
@@ -118,14 +234,58 @@ vertical-align: middle;
 }
 
 #submitbutton {
-    margin-top: 300px;	
- border-radius: 10px;
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
     width: 200px;
-    height: 50px;
+    height: 40px;
 	vertical-align: left;
-    background: #A9F5D0;
+    background: #328ed2;
+    font-size:14px;
+    color: #FFF;
+    cursor: pointer;
 }
 
+	#submitbutton:hover {
+		background-color: gray;
+	}
+
+#menubutton  {
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 150px;
+    height: 40px;
+	vertical-align: left;
+    background: #CCC;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #000;
+    cursor: pointer;
+}
+
+	#menubutton:hover {
+		background-color: gray;
+	}
+
+#logoutbutton  {
+    margin-top: 10px;	
+    border: 0px;
+ 	border-radius: 5px;
+    width: 130px;
+    height: 30px;
+	vertical-align: left;
+    background: #CCC;
+    border-color: #2e6da4;
+    font-size:14px;
+    color: #000;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+	#logoutbutton:hover {
+		background-color: gray;
+	}
 
 
 #axis_horisontal {
@@ -149,7 +309,7 @@ vertical-align: middle;
 	height: 0px;
 	position: relative;
 	top: -1051px;
-	left: 295px;
+	left: 290px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -161,7 +321,7 @@ vertical-align: middle;
 	height: 0px;
 	position: relative;
 	top: -369px;
-	left: 295px;
+	left: 305px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
@@ -185,25 +345,80 @@ vertical-align: middle;
 	height: 0px;
 	position: relative;
 	top: -712px;
-	left: 576px;
+	left: 582px;
 	border: 0px solid #000;
 	vertical-align: bottom;
 	z-index: 50;
 }
 
-#p{
+/*#p{
 height: 100px;
     width: 200px;
     border-radius: 10px;
 background: #A9F5D0;
-}
-#pp{
-padding: 10px;
-}
+}*/
+
 
 
 .ui-autocomplete.ui-widget {
   font-family: Verdana,Arial,sans-serif;
   font-size: 10px;
 }
+
+#dialog {
+	/*alguses peidetud*/
+	display: none;
+	position: fixed;
+
+	top: 36%;
+	left: 43%;
+
+	width: 300px;
+	/*height: 160px;*/
+
+	margin-left: -180px;
+	/*margin-top: -80px;*/
+
+	padding: 24px;
+
+	background-color: #94cafe;
+
+	z-index: 1000;
+	opacity: 40;
+}
+
+	.dialog-text {
+	color: black;
+	font-size: 15px;
+	line-height: 17px;
+	margin-bottom: 12px;
+	text-align: center;
+	}
+
+	.dialog-button {
+		position: relative;
+		margin-left: 80px;
+
+		width: 90px;
+		height: 36px;
+
+		line-height: 36px;
+		text-align: center;
+
+
+		cursor: pointer;
+
+	 	border-radius: 5px;
+
+	    background: #328ed2;
+	    border-color: #2e6da4;
+	    font-size:14px;
+	    color: #FFF;
+	}
+
+		.dialog-button:hover,
+		.dialog-button:active {
+			background-color: gray;
+		}
+
 

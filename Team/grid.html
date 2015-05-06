@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Candy test - Esensorics</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js"></script>
+  
+ <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="style.css"> 
+
+
+  <script>
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  var item_instances;  
+  var test_name;  
+
+ //extract variables from url      
+  
+  item_instances=getParameterByName('items');
+  test_name=getParameterByName('survey');    
+
+ //change test name
+
+
+  $(function() {   
+
+   
+  //returning the help window to green when started typing     
+    $( ".axis_name" ).keypress(function(){
+       // $("#p").css("background","#A9F5D0"); 
+       
+    }); 
+     
+ //vocabulary for autocompelete
+      var availableTags = [
+      "sweet",
+      "savory",
+      "salty",
+      "bitter",
+      "tart",
+      "smoky",
+      "rancid",
+      "spicy",
+      "hot",
+      "creamy",
+      "crumbly",
+      "crunchy",
+      "greasy",
+      "gooey",
+      "moist",
+      "mushy",
+    ];
+//adding autocomplete to axis names      
+    $( ".axis_name" ).autocomplete({
+        
+    source: function (request, response) {
+        var matches = $.map(availableTags, function (acItem) {
+            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
+                return acItem;
+            }
+        });
+        response(matches);
+    }
+});
+      
+//make it faster      
+   $( ".axis_name" ).autocomplete({delay: 100});
+      
+      
+ // this pice hides the tag window when we click somewhere else 
+    $(document).click(function() {
+        $(".add_tag_layer").hide();
+});
+$(".add_tag_layer").click(function(e) {
+    e.stopPropagation(); 
+    return false;        
+                        
+});  
+
+      
+//here I make N number of instances of draggable item
+var N = item_instances;
+
+for(cloneCount = 1 ; cloneCount <= N; cloneCount++){   
+    
+ //creat draggable item
+ var new_item = document.createElement('div');
+new_item.setAttribute('id','draggable_item'+ cloneCount);
+new_item.setAttribute('class',"draggable_content");
+
+    // class juures, et saaks animeerida css3ga
+var sampleBubbles = $('.draggable_content');
+sampleBubbles.addClass('animated');
+    
+//creat name p and its text
+ var p1 = document.createElement("p");
+ var node1 = document.createTextNode(cloneCount);  
+ var span1 = document.createElement("span");
+    
+ span1.appendChild(node1);  
+ span1.setAttribute('class',"number");
+ p1.appendChild(span1);
+    
+ new_item.appendChild(p1);   
+ //  the add tag link(add_tag_link)
+var p2 = document.createElement("p");
+p2.id="add_tag_link"+ cloneCount;
+var a1=document.createElement('a');  a1.href="javascript:$('#add_tag_layer"+cloneCount+"').toggle();$('#add_tag_newtag"+cloneCount+"').focus();";
+var node2 = document.createTextNode("Tag");  
+a1.appendChild(node2);    
+p2.appendChild(a1);
+new_item.appendChild(p2);    
+ //add_tag_layer div 
+var div1 = document.createElement("div");
+div1.id="add_tag_layer"+ cloneCount;    
+div1.setAttribute('class',"add_tag_layer");
+    //input1
+    var in1 = document.createElement("input");
+    in1.id="add_tag_newtag"+ cloneCount;
+    in1.setAttribute('class',"add_tag_newtag");
+    in1.type="text";
+    in1.setAttribute('onkeydown',"add_tag_enter(event,this);");
+    in1.value="";
+    div1.appendChild(in1);
+    //input2
+    var in2 = document.createElement("input");
+    in2.id="add_tag_newtag_but"+ cloneCount;
+    in2.type="button";
+    in2.name="tag";
+    in2.setAttribute('class',"add_tag_layer_button");
+    in2.value="Add";
+    in2.setAttribute('onclick',"add_tag_button(this);");
+    div1.appendChild(in2);
+ new_item.appendChild(div1);
+  
+//add new item to items
+ ( document.getElementById("items")).appendChild(new_item);    
+
+//make item dragable
+$("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack : ".draggable_content"});
+//
+   
+      
+$(".draggable_content").click(function() {
+             // this.css('position', 'absolute');
+     //  $(this).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack: $(this)});
+ for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
+ $("#draggable_item"+cloneCount).css('z-index', 100);
+ 
+ }
+    $(this).css('z-index', 200)
+    
+    });    
+       
+//tag suto-compeletr      
+   $( ".add_tag_newtag" ).autocomplete({
+    source: function (request, response) {
+        var matches = $.map(availableTags, function (acItem) {
+            if (acItem.toUpperCase().indexOf(request.term.toUpperCase()) === 0) {
+                return acItem;
+            }
+        });
+        response(matches);
+    }
+});
+    
+ //make it faster      
+   $( ".add_tag_newtag" ).autocomplete({delay: 100});
+         
+    
+}
+      
+      
+//////////////////////////////////////////////////////////      
+ 
+      x1 =1;
+      y1=1;
+	  $( "#drag_window" ).droppable({
+  drop: function(event,ui) {
+    
+    if(true){
+    $(ui.draggable).animate({ top: y1, left:x1},400);
+     // var draggableId = ui.draggable.attr("id");
+      /* $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 ); */
+      
+      }
+  }
+        
+});
+//***********************     
+      
+       $( "#canvas" ).droppable({
+                  greedy: true
+});
+//*********************      
+      $("#ax_b, #ax_t, #ax_l, #ax_r").keyup(function(){
+   $(this).css({'background-color' : 'white'});
+});
+//************************    
+        $( "#canvas" ).droppable({
+  drop: function(event,ui) {
+    var top= $( "#ax_t" ).val();
+    var bott= $( "#ax_b" ).val();
+     var left = $( "#ax_l" ).val();
+     var right= $( "#ax_r" ).val();
+      
+   //to be replaced by a condition about axis   
+      if((top == "") || (bott == "") ||(left == "")||(right =="")){
+                                                      
+       axis_shake();
+           $("#pp").text("Please set the axis first! ");  
+        //  $("#pp").css("color","#6199E9");                                            
+          $("#pp").effect( "bounce",{times:6}, 300 );               
+     
+  /*  $(ui.draggable).animate({ top: y1, left:x1},400);
+     // var draggableId = ui.draggable.attr("id");
+       $(ui.draggable).effect( "bounce", 
+          {times:3}, 300 );
+      */
+      }
+  }
+        
+});
+
+  });
+      
+ //******************
+ //the function that is activated after "submit botton is pressed"   
+      function submit_function( ){
+          
+          
+          // define elements
+    var $dialog = $('#dialog');
+    var $dialogButton = $('.dialog-button');
+
+    $dialogButton.on('click', function() {
+      $dialog.fadeOut(600);
+//if it is closing dialog
+        if(($('#dialog').find('.dialog-text').text().indexOf("Submitted sucsessfully") > -1)){    
+       window.location.assign("surveys.html"); 
+        }
+    })
+    
+//check if axis have names          
+          var top= $( "#ax_t" ).val();
+          var bott= $( "#ax_b" ).val();
+          var left = $( "#ax_l" ).val();
+          var right= $( "#ax_r" ).val();
+        
+     var alert_text="Submitted sucsessfully! Positions of elements to be saved in database: \n" ; 
+          
+    
+    
+    
+       var item_s = (document.getElementById("items")).childNodes;
+          for( i = 1 , j = item_s.length; i < j ; i++ ){
+   // if( item_s[ i ].getAttribute("class") == "draggable_content" ){
+        alert_text = alert_text+ "Sample"+ i+": x = " + getPosition(item_s[ i ]).x + ", y = " + getPosition(item_s[ i ]).y + "\n";
+   // }
+    }
+          
+    
+    
+             
+              
+          
+      if((top == "") || (bott == "") ||(left == "")||(right == "")){
+          axis_shake();
+      alert_text="Name the axes and place the items before submitting!";
+      }else{
+
+       
+          
+//if there are elements out of canvas 
+var items_out = check_items_onCanvas();
+           
+if (items_out.length > 0 ){
+    
+ for(i = 0; i< items_out.length; i++ ){
+     var id = "#" + items_out[i];
+     $(id).effect( "bounce",{times:3}, 300 );
+ } 
+ 
+alert_text = "Please locate all the items on the canvas before submission!";
+
+}
+     
+      }
+        $dialog.find('.dialog-text').text(alert_text);
+        $dialog.fadeIn(300);
+}
+          
+//************************   
+//check if all samples are in canvas and return the ones who are not
+ function check_items_onCanvas() {
+    var items_out = []; 
+    
+     var position = getPosition(document.getElementById("canvas"));
+ cx=position.x;
+  cy=position.y;       
+for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
+    var current_id= 'draggable_item'+ cloneCount;
+    var current_item = document.getElementById(current_id);
+
+    //get items position
+ position = getPosition(current_item);
+ x=position.x;
+ y=position.y;
+   if(x < cx){ items_out.push(current_id);
+             }
+}
+     
+return items_out;
+ }
+//****************************      
+ //function that checks if axis have name if not shake the lable and change color
+ function axis_shake(){
+  var top= $( "#ax_t" ).val();
+    var bott= $( "#ax_b" ).val();
+     var left = $( "#ax_l" ).val();
+     var right= $( "#ax_r" ).val();
+     
+  if(bott == ""){
+          $("#ax_b").css({'background-color' : '#badbf0'});
+          $("#ax_b").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_b").focus();
+          }   
+          if(left == ""){
+          $("#ax_l").css({'background-color' : '#badbf0'});
+          $("#ax_l").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_l").focus();
+
+          }   
+          if(right == ""){
+          $("#ax_r").css({'background-color' : '#badbf0'});
+          $("#ax_r").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_r").focus();
+
+          } 
+          if(top == ""){
+          $("#ax_t").css({'background-color' : '#badbf0'});
+          $("#ax_t").effect( "bounce", 
+          {times:2}, 300 );
+          $("#ax_t").focus();
+          }  
+ 
+ 
+ }     
+      
+      
+//get position      
+ function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
+  
+    while(element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+    return { x: xPosition, y: yPosition };
+}   
+//************************         
+//add tag funcction
+function add_tag_button(element){
+var id=element.id;  
+var num = parseInt( id.match(/\d+/g), 10 );
+    
+var tag = $('#add_tag_newtag'+num).val();   
+var tag_count = tag.split(",").length ;
+    
+$('#add_tag_link'+num).text(tag_count+"tag");
+    
+var a=document.createElement('a');
+a.href="javascript:$('#add_tag_layer"+num+"').toggle();$('#add_tag_newtag"+num+"').focus();";   
+  
+ var img = new Image();
+img.src = 'img/icon_edit.png';
+img.width =10 ;    
+a.appendChild(img);
+(document.getElementById('add_tag_link'+num)).appendChild(a);
+}
+//   *****************************************       
+ function add_tag_enter(event, element){
+    var id=element.id;  
+var num = parseInt( id.match(/\d+/g), 10 ); 
+    if (event.keyCode == 13) document.getElementById('add_tag_newtag_but'+num).click();
+        
+        
+        }        
+  </script>
+</head>
+<body>
+
+ <div id="drag_window">
+
+  <div id="leftinfo">
+      
+    <div id="leftinfoBOX">
+     <a href="surveys.html"> <img src="img/esensorics.png" style="float:left;height:30px;"> </a>
+
+      <div id="top-nav" style="font-size:14px;padding-top:6px;">
+        <a id="logout-link"style="color:#949494; text-decoration:none;"href="index.html">Log out</a>
+      </div>
+    
+      <div id="h1"><div id="test_name">Candy Test</div><script>  $( "#test_name" ).html(test_name + ' Test');   </script></div>
+      
+    </div>
+
+
+
+
+  <div style="color:#000;text-align:left;width:100%;margin-top:15px;font-size:13px;line-height:17px;">Drag the samples to the canvas on the right:</div>
+
+<div id="items">
+	
+
+</div> 
+      <p id="p1" style="font-size:13px; padding-top:10;"><strong>Hints:</strong></p>   
+
+        <div id="p">
+      <p id="pp"> 1. Name all four axes. <br> 2. Place the items on the canvas accordingly. <br> 3. Use the tag option to characterise each item. <br> 4. When you are done press "Submit". </p>
+  </div>
+
+     <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
+
+</div> 
+  
+      
+
+
+  <div id="rightinfo">
+    <div id="canvas">
+    	<script type="text/javascript">
+      //$('#canvas').html('canvas: '+samplesList[2]['name']);
+	</script>
+	<div id="axis_horisontal"></div>
+	<div id="axis_vertical"></div>
+  
+	<div id="axisname_top">
+<input class="axis_name" id="ax_t" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+</div>  
+
+  <div id="axisname_bottom">
+<input class="axis_name" id="ax_b" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+</div>
+
+	<div id="axisname_left">
+
+<input class="axis_name" id="ax_l" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+</div>
+
+	<div id="axisname_right" >
+    <input class="axis_name" id="ax_r" type="text" placeholder="Name this axis" size="13" maxlength="13"><br>
+  </div>
+</div>
+</div>
+</div>
+
+ <div id='dialog'>
+  <p class='dialog-text'>Name the axes and place the items before submitting!</p>
+  <div class='dialog-button'>OK</div>
+</div>
+    
+</body>
+</html>
+

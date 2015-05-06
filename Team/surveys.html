@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>My surveys - Esensorics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-tagsinput.min.css" rel="stylesheet">
+      <link href="css/myStyles.css" type="text/css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+
+  </head>
+     
+  <body background="img/Food-Infographic1.jpg">
+      
+		<ul class="nav nav-pills" role="tablist" style="background:#FFF;padding:10px;">
+		  <a href="surveys.html"><img src="img/esensorics.png" style="float:left;height:40px;margin-left:10px;margin-right:50px;" /></a>
+		  <li role="presentation" class="active"><a href="surveys.html">My surveys <span class="badge">5</span></a></li>
+		  <li role="presentation"><a href="index.html">Log out</a></li>
+		</ul>
+
+
+        <div class="container-fluid"  style="height: auto;">
+            
+	        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6">     
+	            
+
+				<div class="container" style="background:#FFF;width:600px;margin-left:10px;">
+					<h2>Surveys</h2>
+					<p>You are now logged in to the food tasting platform. Here are they surveys you can currently take:</p>            
+					<table class="table table-striped">
+					<thead>
+					  <tr>
+					    <th style="font-size:16px;">Survey name</th>
+					    <th style="font-size:16px;width:120px;">Deadline</th>
+					    <th style="font-size:16px;width:120px;">Start test</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+					    <td style="font-size:16px;"><a href="grid.html?items=5&survey=Beer">Beer test</a></td>
+					    <td style="font-size:16px;">30.05.2015</td>
+					    <td style="font-size:16px;"><a href="grid.html?items=5&survey=Beer" class="btn btn-primary">Start test now</a></td>
+					  </tr>
+					  <tr>
+					    <td style="font-size:16px;"><a href="grid.html?items=3&survey=Candy">Candy survey</a></td>
+					    <td style="font-size:16px;">12.06.2015</td>
+					    <td style="font-size:16px;"><a href="grid.html?items=3&survey=Candy" class="btn btn-primary">Start test now</a></td>
+					  </tr>
+					  <tr>
+					    <td style="font-size:16px;"><a href="grid.html?items=6&survey=Gum">Gum test</a></td>
+					    <td style="font-size:16px;">15.06.2015</td>
+					    <td style="font-size:16px;"><a href="grid.html?items=6&survey=Gum" class="btn btn-primary">Start test now</a></td>
+					  </tr>
+					  <tr>
+					    <td style="font-size:16px;"><a href="grid.html?items=8&survey=Carrots">Carrots survey</a></td>
+					    <td style="font-size:16px;">22.06.2015</td>
+					    <td style="font-size:16px;"><a href="grid.html?items=8&survey=Carrots" class="btn btn-primary">Start test now</a></td>
+					  </tr>
+					  <tr>
+					    <td style="font-size:16px;"><a href="grid.html?items=7&survey=Bread">Bread survey</a></td>
+					    <td style="font-size:16px;">22.06.2015</td>
+					    <td style="font-size:16px;"><a href="grid.html?items=7&survey=Bread" class="btn btn-primary">Start test now</a></td>
+					  </tr>
+					</tbody>
+					</table>
+				</div>
+	     
+			</div>
+   		</div><!--/.container-->
+
+      
+      
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+          <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+      
+      <script>
+		//the min chars for username
+		var min_chars = 1;
+
+		//result texts
+		var characters_error = 'Minimum amount of chars is 3';
+		var checking_html = 'Checking...';
+
+		//when login button is clicked
+		$('#btn-login').click(function(){
+			//run the character number check
+			if(($('#login-username').val().length<min_chars) || ($('#login-password').val().length<min_chars)){
+				//if it's bellow the minimum show characters_error text '
+				alert("username or password is missing!");
+			}else{
+				check_existance();
+			}
+            
+		});
+
+//  });
+          //function to check username and pass existance
+function check_existance(){
+
+		//get the username and pass
+		var username = $('#login-username').val();
+		var password = $('#login-password').val();
+
+    
+		//use ajax to run the check
+		$.post("php/check_username.php", { username: username, password: password },
+			function(result){
+                 			//if the result is 1
+				if(result == 1){
+                    
+        //login function
+        // $('#login-username').val("imagine that you are logged in!!! :P");
+                    
+window.location.href = 'https://www.youtube.com/watch?v=vhxngaOuqjw#t=1m7s';
+				}else{
+					alert("incorrect usernme or password!" );
+				}
+		});
+
+}
+
+      </script>
+
+
+    
+ <!-- to make a new user -->   
+         <script>
+		//the min chars for username
+		var min_chars = 1;
+
+
+		//when sign up button is clicked
+		$('#btn-signup').click(function(){
+			//run the character number check
+			if(($('#register-username').val().length<min_chars) || ($('#register-password').val().length<min_chars)){
+				//if it's bellow the minimum show characters_error text '
+				alert("username or password is missing!");
+			}else{
+                if($('#register-email').val().length>min_chars){
+                    
+                				make_username();
+
+                
+                }
+                
+			}
+            
+		});
+
+//  });
+          //function to check username and pass existance
+function make_username(){
+
+		//get the username and pass
+		var username = $('#register-username').val();
+		var password = $('#register-password').val();
+        var email = $('#register-email').val();
+
+
+    
+		//use ajax to run the check
+		$.post("php/make_username.php", { username: username, password: password, email: email },
+			function(result){
+                 			//if everything is ok
+				if(result == 0){
+   
+					alert("you are succesfully registered!" );
+//go to login page
+                    $('#signupbox').hide();
+                    $('#register-username').val('');
+                     $('#register-password').val('');
+                    $('#register-email').val('');
+                    $('#loginbox').show();
+				}else{
+                     if(result == 1)
+                     alert("You already have and account with this email, please login." );
+                    if(result == 2)
+					alert("usernme is already taken" );
+         //       $('#register-username').css("color", "red");
+                    
+				} 
+		});
+
+}
+
+      </script>
+    
+    
+    
+    
+    
+<!-- not used yet    -->
+    
+    <script>
+
+      function goToPage( id ) {
+
+  var node = document.getElementById( id );
+  
+  // Check to see if valid node and if node is a SELECT form control
+  
+  if( node &&
+    node.tagName == "SELECT" ) {
+
+    // Go to web page defined by the VALUE attribute of the OPTION element
+
+    window.location.href = node.options[node.selectedIndex].value;
+    
+  } // endif
+  
+  
+}
+       </script>
+  
+      
+    
+  </body>
+</html>
+
+
