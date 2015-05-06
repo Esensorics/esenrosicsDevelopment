@@ -218,6 +218,16 @@ $(".draggable_content").click(function() {
        $(ui.draggable).effect( "bounce", 
           {times:3}, 300 );
       */
+      }else{
+      
+    $("#pp").replaceWith('<p style="background-color:#badbf0;" id="pp"> &#10003;1. Name all four axes.<br> &#10148;2. Place all the items on the canvas accordingly. <br> 3. Use the tag option to characterise each item. <br> 4. When you are done press "Submit". </p>');
+    var items_out = check_items_onCanvas();     
+          if (items_out.length == 0 ){
+        
+              $("#pp").replaceWith('<p style="background-color:#badbf0;" id="pp"> &#10003;1. Name all four axes.<br> &#10003;2. Place all the items on the canvas accordingly. <br> &#10148;3. Use the tag option to characterise each item. <br> 4. When you are done press "Submit". </p>');
+          } 
+      
+      
       }
   }
         
@@ -416,8 +426,8 @@ var num = parseInt( id.match(/\d+/g), 10 );
 </div> 
       <p id="p1" style="font-size:13px; padding-top:10;"><strong>Hints:</strong></p>   
 
-        <div id="p">
-      <p id="pp"> 1. Name all four axes. <br> 2. Place the items on the canvas accordingly. <br> 3. Use the tag option to characterise each item. <br> 4. When you are done press "Submit". </p>
+        <div style="background-color:#badbf0;"  id="p">
+      <p style="background-color:#badbf0;" id="pp"> &#10148;1. Name all four axes. <br> 2. Place all the items on the canvas accordingly. <br> 3. Use the tag option to characterise each item. <br> 4. When you are done press "Submit". </p>
   </div>
 
      <button  type="button" id="submitbutton" onclick="submit_function()">Submit</button> 
