@@ -266,7 +266,7 @@ $(".draggable_content").click(function() {
     $dialogButton.on('click', function() {
       $dialog.fadeOut(600);
 //if it is closing dialog
-        if(($('#okdialog').find('"okdialog-text').text().indexOf("Submitted sucsessfully") > -1)){
+        if(($('#okdialog').find('#okdialog-text').text().indexOf("Submitted sucsessfully") > -1)){
                window.location.assign("surveys.html?test="+test_name); 
 
         }
