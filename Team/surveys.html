@@ -48,9 +48,9 @@
 					</thead>
 					<tbody>
 					  <tr>
-					    <td style="font-size:16px;"><a href="grid.html?items=5&survey=Beer">Beer test</a></td>
+					    <td style="font-size:16px;"><a id="beer1" href="grid.html?items=5&survey=Beer">Beer test</a></td>
 					    <td style="font-size:16px;">30.05.2015</td>
-					    <td style="font-size:16px;"><a href="grid.html?items=5&survey=Beer" class="btn btn-primary">Start test now</a></td>
+					    <td style="font-size:16px;"><a id="beer2" href="grid.html?items=5&survey=Beer" class="btn btn-primary">Start test now</a></td>
 					  </tr>
 					  <tr>
 					    <td style="font-size:16px;"><a id="candy1" href="grid.html?items=3&survey=Candy">Candy survey</a></td>
@@ -58,19 +58,19 @@
 					    <td style="font-size:16px;"><a id="candy2" href="grid.html?items=3&survey=Candy" class="btn btn-primary">Start test now</a></td>
 					  </tr>
 					  <tr>
-					    <td style="font-size:16px;"><a href="grid.html?items=6&survey=Gum">Gum test</a></td>
+					    <td style="font-size:16px;"><a id="gum1" href="grid.html?items=6&survey=Gum">Gum test</a></td>
 					    <td style="font-size:16px;">15.06.2015</td>
-					    <td style="font-size:16px;"><a href="grid.html?items=6&survey=Gum" class="btn btn-primary">Start test now</a></td>
+					    <td style="font-size:16px;"><a id="gum2" href="grid.html?items=6&survey=Gum" class="btn btn-primary">Start test now</a></td>
 					  </tr>
 					  <tr>
-					    <td style="font-size:16px;"><a href="grid.html?items=8&survey=Carrots">Carrots survey</a></td>
+					    <td style="font-size:16px;"><a id="carrot1" href="grid.html?items=8&survey=Carrots">Carrots survey</a></td>
 					    <td style="font-size:16px;">22.06.2015</td>
-					    <td style="font-size:16px;"><a href="grid.html?items=8&survey=Carrots" class="btn btn-primary">Start test now</a></td>
+					    <td style="font-size:16px;"><a id="carrot2" href="grid.html?items=8&survey=Carrots" class="btn btn-primary">Start test now</a></td>
 					  </tr>
 					  <tr>
-					    <td style="font-size:16px;"><a href="grid.html?items=7&survey=Bread">Bread survey</a></td>
+					    <td style="font-size:16px;"><a id="bread1" href="grid.html?items=7&survey=Bread">Bread survey</a></td>
 					    <td style="font-size:16px;">22.06.2015</td>
-					    <td style="font-size:16px;"><a href="grid.html?items=7&survey=Bread" class="btn btn-primary">Start test now</a></td>
+					    <td style="font-size:16px;"><a id="bread2" href="grid.html?items=7&survey=Bread" class="btn btn-primary">Start test now</a></td>
 					  </tr>
 					</tbody>
 					</table>
@@ -98,13 +98,29 @@ var theleft = str.indexOf("=") + 1;
 test_name= str.substring(theleft,str.length);  
  if(test_name.indexOf("Candy")>-1){
     $("#candy1").attr("href","#");
-     $("#candy2").attr("href","#");
-     $("#candy2").text("Done!");
-     $("#candy2").css("color", "black");
-     $("#candy1").css("color", "gray");
+    $("#candy1").css("color", "gray");
+     $("#candy2").replaceWith( "<p>Submitted</p>");
  }              
-               
-               
+    if(test_name.indexOf("Beer")>-1){
+    $("#beer1").attr("href","#");
+    $("#beer1").css("color", "gray");
+     $("#beer2").replaceWith( "<p>Submitted</p>");
+ } 
+     if(test_name.indexOf("Gum")>-1){
+    $("#gum1").attr("href","#");
+    $("#gum1").css("color", "gray");
+     $("#gum2").replaceWith( "<p>Submitted</p>");
+ } 
+     if(test_name.indexOf("Carrot")>-1){
+    $("#carrot1").attr("href","#");
+    $("#carrot1").css("color", "gray");
+     $("#carrot2").replaceWith( "<p>Submitted</p>");
+ } 
+    if(test_name.indexOf("Bread")>-1){
+    $("#bread1").attr("href","#");
+    $("#bread1").css("color", "gray");
+     $("#bread2").replaceWith( "<p>Submitted</p>");
+ }             
                
                });
           
