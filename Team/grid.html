@@ -235,17 +235,38 @@ $(".draggable_content").click(function() {
   });
       
  //******************
+      
+ //when home or surveys icon clicked
+   function goaway_function(){
+        var $dialog = $('#confirm');
+    var $yesdialogButton = $('#yesdialog-button');
+     var $nodialogButton = $('#nodialog-button'); 
+        $dialog.fadeIn(300);
+    $yesdialogButton.on('click', function() {
+      $dialog.fadeOut(600);
+//if said yes
+               window.location.assign("surveys.html"); 
+
+    })
+//if said no    
+     $nodialogButton.on('click', function() {
+      $dialog.fadeOut(600);
+//if it is closing dialog
+     
+    })
+      
+   }
  //the function that is activated after "submit botton is pressed"   
       function submit_function( ){
           
           
           // define elements
-    var $dialog = $('#dialog');
-    var $dialogButton = $('.dialog-button');
+    var $dialog = $('#okdialog');
+    var $dialogButton = $('#okdialog-button');
     $dialogButton.on('click', function() {
       $dialog.fadeOut(600);
 //if it is closing dialog
-        if(($('#dialog').find('.dialog-text').text().indexOf("Submitted sucsessfully") > -1)){
+        if(($('#okdialog').find('"okdialog-text').text().indexOf("Submitted sucsessfully") > -1)){
                window.location.assign("surveys.html?test="+test_name); 
 
         }
@@ -294,7 +315,7 @@ alert_text = "Please locate all the items on the canvas before submission!";
 }
      
       }
-        $dialog.find('.dialog-text').text(alert_text);
+        $dialog.find('#okdialog-text').text(alert_text);
         $dialog.fadeIn(300);
 }
           
@@ -405,7 +426,7 @@ var num = parseInt( id.match(/\d+/g), 10 );
   <div id="leftinfo">
       
     <div id="leftinfoBOX">
-     <a href="surveys.html"> <img src="img/esensorics.png" style="float:left;height:30px;"> </a>
+     <a href="javascript:goaway_function();"> <img src="img/esensorics.png" style="float:left;height:30px;"> </a>
 
       <div id="top-nav" style="font-size:14px;padding-top:6px;">
         <a id="logout-link"style="color:#949494; text-decoration:none;"href="index.html">Log out</a>
@@ -465,10 +486,19 @@ var num = parseInt( id.match(/\d+/g), 10 );
 </div>
 </div>
 
- <div id='dialog'>
-  <p class='dialog-text'>Name the axes and place the items before submitting!</p>
-  <div class='dialog-button'>OK</div>
+ <div id='okdialog' class='dialog'>
+  <p id="okdialog-text" class='dialog-text'>Name the axes and place the items before submitting!</p>
+  <div id="okdialog-button" class='dialog-button'>OK</div>
+
 </div>
+    
+    <div id='confirm' class="dialog">
+  <p class='dialog-text'>Are you sure you want to leave this page?</p>
+  <div id="yesdialog-button" class='dialog-button'>Leave!</div>
+  <div id="nodialog-button" class='dialog-button'>Stay!</div>
+
+</div>   
+    
     
 </body>
 </html>

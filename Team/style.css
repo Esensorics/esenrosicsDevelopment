@@ -365,7 +365,7 @@ background: #A9F5D0;
   font-size: 10px;
 }
 
-#dialog {
+.dialog {
 	/*alguses peidetud*/
 	display: none;
 	position: fixed;
@@ -415,6 +415,8 @@ background: #A9F5D0;
 	    font-size:14px;
 	    color: #FFF;
 	}
+
+
 
 		.dialog-button:hover,
 		.dialog-button:active {
