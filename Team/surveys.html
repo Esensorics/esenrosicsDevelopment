@@ -53,9 +53,9 @@
 					    <td style="font-size:16px;"><a href="grid.html?items=5&survey=Beer" class="btn btn-primary">Start test now</a></td>
 					  </tr>
 					  <tr>
-					    <td style="font-size:16px;"><a href="grid.html?items=3&survey=Candy">Candy survey</a></td>
+					    <td style="font-size:16px;"><a id="candy1" href="grid.html?items=3&survey=Candy">Candy survey</a></td>
 					    <td style="font-size:16px;">12.06.2015</td>
-					    <td style="font-size:16px;"><a href="grid.html?items=3&survey=Candy" class="btn btn-primary">Start test now</a></td>
+					    <td style="font-size:16px;"><a id="candy2" href="grid.html?items=3&survey=Candy" class="btn btn-primary">Start test now</a></td>
 					  </tr>
 					  <tr>
 					    <td style="font-size:16px;"><a href="grid.html?items=6&survey=Gum">Gum test</a></td>
@@ -89,6 +89,27 @@
 
       
       <script>
+          
+$(function() {   
+ //extract variables from url      
+  
+var str= window.location.href; 
+var theleft = str.indexOf("=") + 1;
+test_name= str.substring(theleft,str.length);  
+ if(test_name.indexOf("Candy")>-1){
+    $("#candy1").attr("href","#");
+     $("#candy2").attr("href","#");
+     $("#candy2").text("Done!");
+     $("#candy2").css("color", "black");
+     $("#candy1").css("color", "gray");
+ }              
+               
+               
+               
+               });
+          
+          
+          
 		//the min chars for username
 		var min_chars = 1;
 
