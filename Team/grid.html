@@ -22,17 +22,12 @@
   }
   var item_instances;  
   var test_name;  
-
  //extract variables from url      
   
   item_instances=getParameterByName('items');
   test_name=getParameterByName('survey');    
-
  //change test name
-
-
   $(function() {   
-
    
   //returning the help window to green when started typing     
     $( ".axis_name" ).keypress(function(){
@@ -85,18 +80,15 @@ $(".add_tag_layer").click(function(e) {
     return false;        
                         
 });  
-
       
 //here I make N number of instances of draggable item
 var N = item_instances;
-
 for(cloneCount = 1 ; cloneCount <= N; cloneCount++){   
     
  //creat draggable item
  var new_item = document.createElement('div');
 new_item.setAttribute('id','draggable_item'+ cloneCount);
 new_item.setAttribute('class',"draggable_content");
-
     // class juures, et saaks animeerida css3ga
 var sampleBubbles = $('.draggable_content');
 sampleBubbles.addClass('animated');
@@ -144,7 +136,6 @@ div1.setAttribute('class',"add_tag_layer");
   
 //add new item to items
  ( document.getElementById("items")).appendChild(new_item);    
-
 //make item dragable
 $("#draggable_item"+cloneCount).draggable({containment: "#drag_window", snap: "#canvas", snapMode: "inner", snapTolerance: 32, stack : ".draggable_content"});
 //
@@ -231,7 +222,6 @@ $(".draggable_content").click(function() {
   }
         
 });
-
   });
       
  //******************
@@ -242,7 +232,6 @@ $(".draggable_content").click(function() {
           // define elements
     var $dialog = $('#dialog');
     var $dialogButton = $('.dialog-button');
-
     $dialogButton.on('click', function() {
       $dialog.fadeOut(600);
 //if it is closing dialog
@@ -278,7 +267,6 @@ $(".draggable_content").click(function() {
           axis_shake();
       alert_text="Name the axes and place the items before submitting!";
       }else{
-
        
           
 //if there are elements out of canvas 
@@ -292,7 +280,6 @@ if (items_out.length > 0 ){
  } 
  
 alert_text = "Please locate all the items on the canvas before submission!";
-
 }
      
       }
@@ -311,7 +298,6 @@ alert_text = "Please locate all the items on the canvas before submission!";
 for(cloneCount = 1 ; cloneCount <= item_instances; cloneCount++){ 
     var current_id= 'draggable_item'+ cloneCount;
     var current_item = document.getElementById(current_id);
-
     //get items position
  position = getPosition(current_item);
  x=position.x;
@@ -341,14 +327,12 @@ return items_out;
           $("#ax_l").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_l").focus();
-
           }   
           if(right == ""){
           $("#ax_r").css({'background-color' : '#badbf0'});
           $("#ax_r").effect( "bounce", 
           {times:2}, 300 );
           $("#ax_r").focus();
-
           } 
           if(top == ""){
           $("#ax_t").css({'background-color' : '#badbf0'});
@@ -477,4 +461,3 @@ var num = parseInt( id.match(/\d+/g), 10 );
     
 </body>
 </html>
-
