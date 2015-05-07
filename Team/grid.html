@@ -272,6 +272,12 @@ $(".draggable_content").click(function() {
         }
     })
     
+    var $staydialogButton = $('#staydialog-button');
+    $staydialogButton.on('click', function() {
+      $dialog.fadeOut(600);
+
+    })
+    
 //check if axis have names          
           var top= $( "#ax_t" ).val();
           var bott= $( "#ax_b" ).val();
@@ -488,7 +494,8 @@ var num = parseInt( id.match(/\d+/g), 10 );
 
  <div id='okdialog' class='dialog'>
   <p id="okdialog-text" class='dialog-text'>Name the axes and place the items before submitting!</p>
-  <div id="okdialog-button" class='dialog-button'>OK</div>
+     <div id="staydialog-button" class='dialog-button'>Stay!</div>
+  <div id="okdialog-button" class='dialog-button'>Submit and leave!</div>
 
 </div>
     

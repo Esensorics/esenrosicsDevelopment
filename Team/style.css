@@ -422,12 +422,24 @@ background: #A9F5D0;
 		margin-top: 20px;
 	}
 
+	#okdialog-button {
+        		width: 120px;
+		position: relative;
+		margin-left: 130px;
+		margin-top: -36px;
+	}
+#staydialog-button {
+		position: relative;
+		margin-left: 30px;
+		margin-right: 10px;
+		margin-top: 20px;
+	}
+
 	#nodialog-button {
 		position: relative;
 		margin-left: 130px;
 		margin-top: -36px;
 	}
-
 
 
 		.dialog-button:hover,
